@@ -1,0 +1,40 @@
+ 
+.heade {
+    background-color: black;
+    width: 100vw;
+    height: 71px;
+    display: flex;
+    align-items: center;
+}
+.inpu {
+    width: 350px;
+    height: 28px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #BEBEBE;
+    padding-right: 10px;
+    padding-left: 8px;
+    font-size: 14px;
+}
+.estencao{
+    width: 50%;
+}
+.opcoes{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+}
+.opc{
+    color: #FF4D00;
+}
+.noTem{
+    color:#FF4D00 ;
+}
+.cadastre{
+    color: #FF8B00;
+    cursor: pointer;
+}
