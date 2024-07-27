@@ -2,12 +2,12 @@
 .heade {
     background-color: black;
     width: 100vw;
-    height: 71px;
+    height: 60px;
     display: flex;
     align-items: center;
 }
 .inpu {
-    width: 350px;
+    width: 330px;
     height: 28px;
     border-radius: 5px;
     border: none;
@@ -16,6 +16,12 @@
     padding-right: 10px;
     padding-left: 8px;
     font-size: 14px;
+}
+.alinha{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    margin-bottom: 10px;
 }
 .estencao{
     width: 50%;
@@ -30,11 +36,19 @@
 }
 .opc{
     color: #FF4D00;
+    text-decoration: none;
+    font-size: 15px;
 }
 .noTem{
     color:#FF4D00 ;
+    height: 3px;
+    font-size: 15px;
+    font-family: 'Montserrat';
 }
 .cadastre{
     color: #FF8B00;
     cursor: pointer;
+    font-size: 15px;
+    text-decoration: none;
+
 }

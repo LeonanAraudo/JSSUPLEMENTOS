@@ -1,10 +1,12 @@
 import Image from "next/image";
-import styles from '../style/header.module.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styles from '../style/header.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'; 
+import {montserrat} from '../app/fonts';
 
 const Header = () => {
     return (
+        <>
         <header className={styles.heade}>
             <div>
                 <Image
@@ -21,15 +23,15 @@ const Header = () => {
                 <ul className={styles.opcoes}>
                     <li>
                         <div className={styles.alinha}>
-                            <p className={styles.noTem}>Não tem conta?</p>
-                            <a className={styles.cadastre} href="#">Cadastre-se</a>
+                            <p className={`${montserrat.className} ${styles.noTem}`}>Não tem conta?</p>
+                            <a className={`${montserrat.className} ${styles.cadastre}`} href="#">Cadastre-se</a>
                         </div>
                     </li>
                     <li>
-                        <a className={styles.opc} href="#">Inicio</a>
+                        <a className={`${montserrat.className} ${styles.opc}`} href="#">Inicio</a>
                     </li>
                     <li>
-                        <a className={styles.opc} href="#">Contatos</a>
+                        <a className={`${montserrat.className} ${styles.opc}`} href="#">Contatos</a>
                     </li>
                     <li>
                         <FontAwesomeIcon
@@ -41,6 +43,7 @@ const Header = () => {
                 </ul>
             </nav>
         </header>
+        </>
     );
 }
 

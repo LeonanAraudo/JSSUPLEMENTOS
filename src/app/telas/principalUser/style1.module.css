@@ -1,0 +1,39 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(255, 255, 255);
+    background-image: url('../../../../public/imaga.png');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+.slide{
+    height: 250px;
+    background-color: rgb(170, 5, 5);
+}
+.opcoes{
+    width: 100%;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.alinhas{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    list-style-type: none;
+    text-decoration: none;
+    font-weight: bold;
+}
+.linha{
+    width: 100%;
+    background-color: black;
+    height: 2px;
+}
+.pointer{
+    cursor: pointer;
+}

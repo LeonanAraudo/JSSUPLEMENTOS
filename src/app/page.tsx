@@ -1,9 +1,11 @@
-import styles from "./page.module.css";
-import Header from '../componentes/header'
+import Main from './telas/principalUser/mainUser';
+
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <Header/>
-    </main>
+    <>
+      <div>
+        <Main />
+      </div>
+    </>
   );
 }
