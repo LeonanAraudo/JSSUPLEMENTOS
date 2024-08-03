@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'; 
 import {montserrat} from '../app/fonts';
 
-const Header = () => {
+export default function Header () {
     return (
         <>
         <header className={styles.heade}>
@@ -47,4 +47,3 @@ const Header = () => {
     );
 }
 
-export default Header;
