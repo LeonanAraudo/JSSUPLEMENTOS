@@ -16,6 +16,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@next/font": "^14.2.5",
+    "@splidejs/react-splide": "^0.7.12",
     "axios": "^1.7.3",
     "mysql2": "^3.11.0",
     "next": "14.2.5",

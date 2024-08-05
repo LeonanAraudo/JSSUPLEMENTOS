@@ -10,8 +10,9 @@
     background-repeat: no-repeat;
 }
 .slide{
-    height: 250px;
-    background-color: rgb(170, 5, 5);
+    height: 280px;
+    list-style-type: none;
+    text-decoration: none;
 }
 .opcoes{
     width: 100%;
@@ -36,4 +37,20 @@
 }
 .pointer{
     cursor: pointer;
+}
+.imag1{
+    width: 600px;
+    height: 270px;
+    background-repeat: no-repeat;
+    background-size: cover; /* Ajusta a imagem para cobrir o contêiner sem distorção */
+    background-position: center;
+    background-image: url('/black.jpg');
+}
+.imag2{
+    width: 600px;
+    height: 270px;
+    background-repeat: no-repeat;
+    background-size: cover; /* Ajusta a imagem para cobrir o contêiner sem distorção */
+    background-position: center;
+    background-image: url('/out.png');
 }

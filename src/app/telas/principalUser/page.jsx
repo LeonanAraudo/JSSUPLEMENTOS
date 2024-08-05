@@ -1,6 +1,9 @@
+"use client"
 import Header from '../../../componentes/header'
 import styles from './style1.module.css'
 import {montserrat} from '../../fonts';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 
 export default function Main() {
   return (
@@ -9,6 +12,20 @@ export default function Main() {
        <Header/>
     </header>
     <div className={styles.slide}>
+          <Splide 
+          className={styles.ca} 
+          aria-label="My Favorite Images"
+          options={{
+            type:'loop',
+            autoplay:true,
+            interval:3000
+          }}
+          >
+              <SplideSlide className={styles.imag1}>
+              </SplideSlide>
+              <SplideSlide className={styles.imag2}>
+              </SplideSlide>
+        </Splide>
     </div>
     <nav className={styles.opcoes}>
       <ul className={`${montserrat.className}  ${styles.alinhas}`}>

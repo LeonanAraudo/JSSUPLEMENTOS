@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { montserrat } from '../../fonts';
 import { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
+
 
 interface FormData {
   Nome: string;
@@ -19,6 +21,7 @@ export default function Login() {
   });
 
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+  const router = useRouter();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -30,6 +33,7 @@ export default function Login() {
     try {
       const response = await axios.post('/api/user', formData);
       setMessage({ type: 'success', text: 'Usuário criado com sucesso!' });
+      router.push('/telas/login');
     } catch (error) {
       if (error instanceof Error) {
         setMessage({ type: 'error', text: 'Erro ao criar usuário: ' + error.message });

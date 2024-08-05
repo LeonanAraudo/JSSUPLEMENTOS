@@ -30,7 +30,7 @@ export default function Login() {
                         </Link>
                     </div>
                         <div className={styles.notCount}>
-                             <p style={{fontWeight:'bold'}}>Não tem conta?</p><Link className={styles.link} href="/telas/caadastro"><p className={styles.colore}>Cadastre-se</p></Link>
+                             <p style={{fontWeight:'bold'}}>Não tem conta?</p><Link className={styles.link} href="/telas/cadastro"><p className={styles.colore}>Cadastre-se</p></Link>
                         </div>
                 </form>
                 
