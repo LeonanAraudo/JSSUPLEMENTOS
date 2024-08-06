@@ -4,6 +4,7 @@ import styles from './style1.module.css'
 import {montserrat} from '../../fonts';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
+import Card from '@/componentes/card';
 
 export default function Main() {
   return (
@@ -13,14 +14,14 @@ export default function Main() {
     </header>
     <div className={styles.slide}>
           <Splide 
-          className={styles.ca} 
-          aria-label="My Favorite Images"
-          options={{
-            type:'loop',
-            autoplay:true,
-            interval:3000
-          }}
-          >
+            className={styles.ca} 
+            aria-label="My Favorite Images"
+            options={{
+              type:'loop',
+              autoplay:true,
+              interval:3000
+            }}
+            >
               <SplideSlide className={styles.imag1}>
               </SplideSlide>
               <SplideSlide className={styles.imag2}>
@@ -39,8 +40,8 @@ export default function Main() {
       </ul>
     </nav>
     <div className={styles.linha}></div>
-    <div>
-      
+    <div className={styles.produtos}>
+        <Card/>
     </div>
     </main>
   );

@@ -1,0 +1,30 @@
+.container1{
+    width: 280px;
+    height: 350px;
+    margin: 40px;
+    border-radius: 5px;
+    background-color: #242424;
+}
+.imagePromo{
+    width: 100%;
+    height: 70%;
+    border-radius: 5px;
+    background-image: url('/mar.jpg');
+}
+.containerTitle{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: blue;
+}
+.textTitle{
+    margin: 0;
+    padding: 0;
+    width: 70%;
+    background-color: red;
+    color: #ffffff;
+}

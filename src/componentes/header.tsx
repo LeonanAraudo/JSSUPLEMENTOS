@@ -1,5 +1,5 @@
 import Image from "next/image";
-import styles from '../style/header.module.css';
+import styles from '../styleComponents/header.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'; 
 import {montserrat} from '../app/fonts';
