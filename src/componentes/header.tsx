@@ -8,7 +8,7 @@ export default function Header () {
     return (
         <>
         <header className={styles.heade}>
-            <div>
+            <div className={styles.logo}>
                 <Image
                     src='/suples.png'
                     width={300} 
@@ -36,7 +36,7 @@ export default function Header () {
                     <li>
                         <FontAwesomeIcon
                             icon={faCartShopping}
-                            style={{ color: "#ff8b00", width: 25, cursor: 'pointer' }}
+                            style={{ color: "#ff8b00", width: 25, cursor: 'pointer', }}
                             aria-label="Carrinho de compras"
                         />
                     </li>

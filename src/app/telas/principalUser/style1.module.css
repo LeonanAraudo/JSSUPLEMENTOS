@@ -1,16 +1,20 @@
+
 .container{
     width: 100vw;
     height: 100vh;
     margin: 0;
+    overflow-x: hidden;
     padding: 0;
     background-color: rgb(255, 255, 255);
     background-image: url('../../../../public/imaga.png');
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    
 }
 .slide{
-    height: 280px;
+    width: 100%;
     list-style-type: none;
     text-decoration: none;
 }
@@ -39,18 +43,23 @@
     cursor: pointer;
 }
 .imag1{
-    width: 600px;
+    width: 100%;
     height: 270px;
     background-repeat: no-repeat;
-    background-size: cover; /* Ajusta a imagem para cobrir o contêiner sem distorção */
+    background-size: cover; 
     background-position: center;
     background-image: url('/black.jpg');
 }
 .imag2{
-    width: 600px;
+    width: 100%;
     height: 270px;
     background-repeat: no-repeat;
-    background-size: cover; /* Ajusta a imagem para cobrir o contêiner sem distorção */
+    background-size: cover; 
     background-position: center;
     background-image: url('/out.png');
+    background-attachment: fixed;
+}
+.produtos{
+    background-color: transparent;
+   
 }
