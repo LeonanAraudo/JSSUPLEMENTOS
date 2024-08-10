@@ -13,7 +13,7 @@ interface FormData {
   Telefone: string;
 }
 
-export default function Login() {
+export default function Cadastrar() {
   const [formData, setFormData] = useState<FormData>({
     Nome: '',
     Senha: '',

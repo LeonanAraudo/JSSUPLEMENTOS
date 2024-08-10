@@ -1,25 +1,29 @@
-import { NextResponse } from 'next/server';
 import usuario from '../../models/usuario';
 
-export async function POST(request) {
-  try {
-    const { Nome, Senha } = await request.json();
+export default async function handler(req, res) {
+  if (req.method === 'POST') {
+    try {
+      const { Nome, Senha } = req.body;
 
-    const user = await usuario.findOne({ where: { Nome } });
+      const user = await usuario.findOne({ where: { Nome } });
 
-    if (!user) {
-      return NextResponse.json({ error: 'Usuário não encontrado' }, { status: 404 });
+      if (!user) {
+        return res.status(404).json({ error: 'Usuário não encontrado' });
+      }
+
+      const isPasswordCorrect = Senha === user.Senha;
+
+      if (!isPasswordCorrect) {
+        return res.status(401).json({ error: 'Senha incorreta' });
+      }
+
+      return res.redirect('/telas/principalUser');
+    } catch (error) {
+      console.error('Erro no login:', error);
+      return res.status(500).json({ error: 'Erro interno do servidor' });
     }
-
-    const isPasswordCorrect = Senha === user.Senha;
-
-    if (!isPasswordCorrect) {
-      return NextResponse.json({ error: 'Senha incorreta' }, { status: 401 });
-    }
-    
-    return NextResponse.redirect('/telas/principalUser');
-  } catch (error) {
-    console.error('Erro no login:', error);
-    return NextResponse.json({ error: 'Erro interno do servidor' }, { status: 500 });
+  } else {
+    res.setHeader('Allow', ['POST']);
+    return res.status(405).end(`Método ${req.method} não permitido`);
   }
 }

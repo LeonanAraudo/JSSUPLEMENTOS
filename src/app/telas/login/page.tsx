@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { montserrat } from '../../fonts';
 import { useState, FormEvent } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import axios from 'axios'; 
 
 export default function Login() {
