@@ -1,1 +1,1 @@
-Projeto de exibição de vendas e suplementos usando o framework next.js.
+Projeto de exibição e vendas e suplementos usando o framework next.js.
