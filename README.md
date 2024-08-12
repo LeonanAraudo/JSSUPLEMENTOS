@@ -8,3 +8,15 @@ O projeto JSSuplementos é uma aplicação voltada para a exibição e venda de 
   <img src="public/outImg/3.jpeg"/>
   <img src="public/outImg/4.jpeg"/>
 </div>
+<nav>
+  <h2>Tecnologias usadas</h2>
+<ul>
+  <b>
+    <li>Next.js</li>
+    <li>TypeScript</li>
+    <li>Sequelize</li>
+    <li>Axios</li>
+    <li>Splide</li>
+  </b>
+</ul>
+</nav>
