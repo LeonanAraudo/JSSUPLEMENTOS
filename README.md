@@ -8,8 +8,8 @@
 <div>
   <img src="public/outImg/1.jpeg"/>
   <img src="public/outImg/2.jpeg"/>
-  <img src="public/outImg/3.jpeg"/>
-  <img src="public/outImg/4.jpeg"/>
+  <img src="public/outImg/5.jpeg"/>
+  <img src="public/outImg/6.jpeg"/>
 </div>
 <nav>
   <h2>Tecnologias usadas</h2>
