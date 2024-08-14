@@ -1,7 +1,7 @@
 "use client"
 import Header from '../../../componentes/header'
 import styles from './style1.module.css'
-import {montserrat} from '../../fonts';
+import {openSans} from '../../fonts';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import Card from '@/componentes/card';
@@ -12,6 +12,22 @@ export default function Main() {
     <header className={styles.heder}>
        <Header/>
     </header>
+    <nav className={styles.opcoes}>
+      <ul className={`${openSans.className}  ${styles.alinhas}`}>
+        <li>
+          <a className={styles.pointer}>Whey</a>
+        </li>
+        <li>
+          <a className={styles.pointer}>Creatina</a>
+        </li>
+        <li>
+          <a className={styles.pointer}>Pré-treino</a>
+        </li>
+        <li>
+          <a className={styles.pointer}>Promoções</a>
+        </li>
+      </ul>
+    </nav>
     <div className={styles.slide}>
           <Splide 
             className={styles.ca} 
@@ -19,7 +35,8 @@ export default function Main() {
             options={{
               type:'loop',
               autoplay:true,
-              interval:3000
+              interval:3000,
+              arrows:false
             }}
             >
               <SplideSlide className={styles.imag1}>
@@ -28,17 +45,6 @@ export default function Main() {
               </SplideSlide>
         </Splide>
     </div>
-    <nav className={styles.opcoes}>
-      <ul className={`${montserrat.className}  ${styles.alinhas}`}>
-        <li>
-          <a className={styles.pointer}>Whey</a>
-        </li>
-        <li>
-          <a className={styles.pointer}>Creatina</a>
-        </li>
-        <li className={styles.pointer}>Pré-treino</li>
-      </ul>
-    </nav>
     <div className={styles.linha}></div>
     <div className={styles.produtos}>
         <Card/>
