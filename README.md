@@ -8,7 +8,7 @@
 <div>
   <img src="public/outImg/1.jpeg"/>
   <img src="public/outImg/2.jpeg"/>
-  <img src="public/outImg/5.jpeg"/>
+  <img src="public/outImg/8.jpeg"/>
   <img src="public/outImg/6.jpeg"/>
 </div>
 <nav>
