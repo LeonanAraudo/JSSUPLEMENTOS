@@ -4,9 +4,10 @@ import styles from './style1.module.css'
 import {openSans} from '../../fonts';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import Card from '@/componentes/card';
+import Popular from '@/componentes/popularProdutos';
 
 export default function Main() {
+  
   return (
     <main className={styles.container}> 
     <header className={styles.heder}>
@@ -36,7 +37,7 @@ export default function Main() {
               type:'loop',
               autoplay:true,
               interval:3000,
-              arrows:false
+              arrows:false,
             }}
             >
               <SplideSlide className={styles.imag1}>
@@ -47,7 +48,7 @@ export default function Main() {
     </div>
     <div className={styles.linha}></div>
     <div className={styles.produtos}>
-        <Card/>
+          <Popular/>
     </div>
     </main>
   );
