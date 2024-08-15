@@ -2,13 +2,19 @@ import styles from '../styleComponents/card.module.css';
 import {montserrat} from '../app/fonts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesDown } from '@fortawesome/free-solid-svg-icons'; 
+import Image from 'next/image';
 
 export default function Card(){
     return(
         <>
             <main className={styles.container1}>
                 <div  className={styles.imagePromo}>
-
+                <Image
+                  src="/creatinha.png"
+                  alt="Descrição da Imagem"
+                  width={245}
+                  height={238}
+                />
                 </div>
                 <div className={`${montserrat.className} ${styles.info}`}>
                     <div className={styles.containerTitle}>

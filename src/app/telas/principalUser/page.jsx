@@ -50,6 +50,7 @@ export default function Main() {
     <div className={styles.produtos}>
           <Popular/>
     </div>
+    <div className={styles.acre}></div>
     </main>
   );
 }

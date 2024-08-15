@@ -14,7 +14,8 @@ export default function Popular(){
               rewind:true,
               pagination:false,
               fixedWidth:245,
-              gap:10
+              gap:10,
+              fixedHeight:350
               
             }}
             >

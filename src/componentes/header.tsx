@@ -26,7 +26,7 @@ export default function Header () {
                         <div className={styles.icon}>
                             <FontAwesomeIcon
                                 icon={faUser}
-                                style={{ color: "#ff8b00", width: 45,height: 21, cursor: 'pointer', }}
+                                style={{ color: "#ff8b00", width: 45,height: 21 }}
                                 aria-label="User"
                             />
                         </div>
