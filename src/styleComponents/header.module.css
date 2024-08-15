@@ -6,9 +6,7 @@
     display: flex;
     align-items: center;
 }
-.logo{
-    cursor: pointer;
-}
+
 .inpu {
     width: 330px;
     height: 28px;

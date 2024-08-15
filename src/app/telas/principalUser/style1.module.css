@@ -22,7 +22,7 @@
 .alinhas{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     list-style-type: none;
@@ -60,4 +60,8 @@
 }
 .acre{
     height: 2000px;
+}
+.pointer2{
+    cursor: pointer;
+    margin-right: 20px;
 }

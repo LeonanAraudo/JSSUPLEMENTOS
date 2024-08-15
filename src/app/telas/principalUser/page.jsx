@@ -5,7 +5,7 @@ import {openSans} from '../../fonts';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import Popular from '@/componentes/popularProdutos';
-
+import Drawer from '../../../componentes/drawer'
 export default function Main() {
   
   return (
@@ -16,6 +16,9 @@ export default function Main() {
     <nav className={styles.opcoes}>
       <ul className={`${openSans.className}  ${styles.alinhas}`}>
         <li>
+          <Drawer/>
+        </li>
+        <li>
           <a className={styles.pointer}>Whey</a>
         </li>
         <li>
@@ -25,7 +28,7 @@ export default function Main() {
           <a className={styles.pointer}>Pré-treino</a>
         </li>
         <li>
-          <a className={styles.pointer}>Promoções</a>
+          <a className={styles.pointer2}>Promoções</a>
         </li>
       </ul>
     </nav>
