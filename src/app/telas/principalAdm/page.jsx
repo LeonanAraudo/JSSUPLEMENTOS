@@ -1,13 +1,13 @@
 "use client"
 import Header from '../../../componentes/header'
-import styles from './style1.module.css'
+import styles from './adm.module.css'
 import {openSans} from '../../fonts';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import Popular from '@/componentes/popularProdutos';
+import Drawer from '../../../componentes/drawer'
 
 export default function MainAdm() {
-  
   return (
     <main className={styles.container}> 
     <header className={styles.heder}>
@@ -15,6 +15,9 @@ export default function MainAdm() {
     </header>
     <nav className={styles.opcoes}>
       <ul className={`${openSans.className}  ${styles.alinhas}`}>
+        <li>
+          <Drawer/>
+        </li>
         <li>
           <a className={styles.pointer}>Whey</a>
         </li>
@@ -25,7 +28,7 @@ export default function MainAdm() {
           <a className={styles.pointer}>Pré-treino</a>
         </li>
         <li>
-          <a className={styles.pointer}>Promoções</a>
+          <a className={styles.pointer2}>Promoções</a>
         </li>
       </ul>
     </nav>
