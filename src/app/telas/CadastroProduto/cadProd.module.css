@@ -4,17 +4,43 @@
 .forme{
     width: 100%;
     height: 450px;
-    background-color: red;
     display: flex;
     flex-direction: row;
 }
 .primaMetade{
     width: 50%;
     height: 100%;
-    background-color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .segunMetade{
     width: 50%;
     height: 100%;
     background-color: brown;
+}
+.selectImg{
+    display: none;
+}
+.labels {
+    width: 70%;
+    height: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: #ffffff;
+    cursor: pointer;
+    overflow: hidden;
+}
+.selectText{
+    z-index: 2;
+    position: fixed;
+}
+.imagePreview {
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    transform: scale(1)
+   
 }
