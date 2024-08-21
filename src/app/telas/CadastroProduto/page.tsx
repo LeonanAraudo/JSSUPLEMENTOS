@@ -133,24 +133,49 @@ export default function CadastroProd() {
                             />
                         </div>
                     </div>
-                    <div className={styles.alingPadrao}>
-                        <div>
+                    <div className={styles.content}>
+                        <div className={styles.padrao}>
                             <label htmlFor='IdPesoProduto' className={styles.labelPadrao}>Peso do Produto</label>
-                            <input type="number" name="namePesoProduto" id="IdPesoProduto" />
+                            <input 
+                            type="text" 
+                            name="namePesoProduto" 
+                            id="IdPesoProduto" 
+                            className={styles.inputNumbers}
+                            />
                         </div>
-                        <div>
+                        <div className={styles.padrao}>
                             <label htmlFor='IdUnidadesDisponiveis' className={styles.labelPadrao}>Unidades Disponiveis</label>
-                            <input type="number" name="nameUnidadesDisponivei" id="IdUnidadesDisponiveis" />
-                        </div>
-                        <div>
-                            <label htmlFor='IdQuantidadeReserva' className={styles.labelPadrao}>Quantidades para reserva</label>
-                            <input type="number" name="nameQuantidadeReserva" id="IdQuantidadeReserva" />
-                        </div>
-                        <div>
-                            <label htmlFor='IdDiaReserva' className={styles.labelPadrao}>Dias de reserva</label>
-                            <input type="number" name="nameDiaReserva" id="IdDiaReserva" />
+                            <input 
+                            type="number" 
+                            name="nameUnidadesDisponivei" 
+                            id="IdUnidadesDisponiveis" 
+                            className={styles.inputNumbers}
+                            />
                         </div>
                     </div>
+                        <div className={styles.content2}>
+                            <div className={styles.padrao}>
+                                <label htmlFor='IdQuantidadeReserva' className={styles.labelPadrao}>Quantidades para reserva</label>
+                                <input 
+                                type="number" 
+                                name="nameQuantidadeReserva" 
+                                id="IdQuantidadeReserva" 
+                                className={styles.inputNumbers}
+                                />
+                            </div>
+                            <div className={styles.padrao}>
+                                <label htmlFor='IdDiaReserva' className={styles.labelPadrao}>Dias de reserva</label>
+                                <input 
+                                type="number" 
+                                name="nameDiaReserva" 
+                                id="IdDiaReserva" 
+                                className={styles.inputNumbers}
+                                />
+                            </div>
+                        </div>
+                </div>
+                <div>
+                    
                 </div>
             </form>
         </div>
