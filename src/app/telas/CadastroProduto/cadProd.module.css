@@ -3,7 +3,7 @@
 }
 .forme{
     width: 100%;
-    height: 450px;
+    height: 435px;
     display: flex;
     flex-direction: row;
     background-color: #F9F9F9;
@@ -69,7 +69,7 @@
 }
 .inputMarSab{
     height: 32px;
-    width: 200px;
+    width: 70%;
     border: none;
     outline: none;
     border-radius: 5px;
@@ -83,6 +83,7 @@
     border: none;
     outline: none;
     height: 30px;
+    width: 60%;
     border-radius: 5px;
     margin-left: 5px;
     font-size: 15px;
@@ -109,7 +110,6 @@
 .padrao{
     display: flex;
     flex-direction: column;
-    
 }
 .alingPadrao{
     display: flex;
@@ -118,13 +118,13 @@
 .Gap{
     display: flex;
     flex-direction: column;
+    width: 27%;
     gap: 5px;
 }
 .dinheiros{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 15px;
 }
 .simbolDinheiro{
     display: flex;
@@ -147,14 +147,39 @@
 .content{
     display: flex;
     flex-direction: row;
-    align-self: center;
+    align-items: center;
     width: 100%;
-    gap: 170px;
+    gap: 0px;
+}
+.a{
+    display: flex;
+    flex-direction: column;
+    width: 47%;
 }
 .content2{
     display: flex;
     flex-direction: row;
     align-self: center;
     width: 100%;
-    gap: 100px;
+    gap: 60px;
+}
+.divButton{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.submitButton{
+    height: 50px;
+    width: 250px;
+    background-color: #FF4D00;
+    border: none;
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+}
+.submitButton:hover{
+    background-color: #ff621f;
+
 }
