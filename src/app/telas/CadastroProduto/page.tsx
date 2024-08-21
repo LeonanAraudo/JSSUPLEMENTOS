@@ -45,7 +45,8 @@ export default function CadastroProd() {
                               />
                           )}
                           
-                          <p className={styles.selectText}>Selecione a imagem do produto <FontAwesomeIcon
+                          <p className={styles.selectText}>Selecione a imagem do produto 
+                            <FontAwesomeIcon
                                         icon={faImage}
                                         style={{ color: "white", width: 18,height: 13,  }}
                                         aria-label="Carrinho de compras"
@@ -53,70 +54,100 @@ export default function CadastroProd() {
                     </label>
                 </div>
                 <div className={styles.segunMetade}>
-                    <div>
-                        <label htmlFor='NomeProd'>Nome</label>
+                    <div className={`${styles.NomeProduto} ${styles.padrao}`}>
+                        <label htmlFor='NomeProd' className={styles.labelPadrao}>Nome</label>
                         <input 
                         type='text'
-                        placeholder='Insira o nome do produto'
                         name='NomeProduto'
                         id='NomeProd'
+                        className={`${styles.inputNP} ${styles.backgroundInputs}`}
+                        placeholder='Insira o nome do produto'
                         />
                     </div>
-                    <div>
-                        <label htmlFor='Descricao'>Descrição</label>
-                        <textarea id='Descricao' name='DescProduto'></textarea>
+                    <div className={`${styles.DescicaoProduto} ${styles.padrao}`} >
+                        <label htmlFor='Descricao' className={styles.labelPadrao}>Descrição</label>
+                        <textarea 
+                        id='Descricao'
+                        name='DescProduto' 
+                        placeholder='Descreva o produto'
+                        className={`${styles.inputDesc} ${styles.backgroundInputs} ${montserrat.className}`}
+                        ></textarea>
                     </div>
-                    <div>
-                        <div>
-                            <label htmlFor='IdPrecoVenda'>Preço de Venda</label>
-                            <div>
-                                <p>R$</p>
-                            </div>
-                            <div>
-                                <input type='number' name='namePrecoVenda' id='IdPrecoVenda'/>
-                            </div>
-                        </div>
-                        <div>
-                            <label htmlFor='IdPrecoMercado'>Preço de Mercado</label>
-                            <div>
-                                <p>R$</p>
-                            </div>
-                            <div>
-                                <input type='number' name='namePrecoMercado' id='IdPrecoMercado'/>
+                    <div className={styles.dinheiros}>
+                        <div className={styles.Gap}>
+                            <label htmlFor='IdPrecoVenda' className={styles.labelPadrao}>Preço de Venda</label>
+                            <div className={`${styles.alingPadrao}`}>
+                                <div className={styles.simbolDinheiro}>
+                                    <p>R$</p>
+                                </div>
+                                <div>
+                                    <input 
+                                    className={styles.moneyInput} 
+                                    type='number' 
+                                    name='namePrecoVenda' 
+                                    id='IdPrecoVenda'/>
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <select name="Selecione" id="">
-                                <label>Tipo de Produto</label>
+                        <div className={styles.Gap}>
+                            <label htmlFor='IdPrecoMercado' className={styles.labelPadrao}>Preço de Mercado</label>
+                          <div className={`${styles.alingPadrao}`}>
+                                <div className={styles.simbolDinheiro}>
+                                    <p>R$</p>
+                                </div>
+                                <div >
+                                    <input 
+                                    className={styles.moneyInput} 
+                                    type='number' 
+                                    name='namePrecoMercado' 
+                                    id='IdPrecoMercado'/>
+                                </div>
+                          </div>
+                        </div>
+                        <div className={styles.Gap}>
+                            <label htmlFor='SelectType' className={styles.labelPadraoOut}>Tipo de Produto</label>
+                            <select className={styles.optionsTipo} name="Selecione" id="SelectType">
                                 <option>Ame</option>
                             </select>
                         </div>    
                     </div>
-                    <div>
-                        <div>
-                            <label htmlFor="IdMarca">Marca</label>
-                            <input type="text" name="nameMarca" id="IdMarca" />
+                    <div className={styles.content}>
+                        <div className={styles.padrao}>
+                            <label htmlFor="IdMarca" className={styles.labelPadrao}>Marca</label>
+                            <input 
+                            className={styles.inputMarSab} 
+                            type="text" 
+                            name="nameMarca" 
+                            id="IdMarca" 
+                            placeholder='Insira a Marca do produto'
+                            />
                         </div>
-                        <div>
-                            <label htmlFor='IdSabor'>Sabor</label>
-                            <input type="text" name="nameSabor" id="IdSabor" />
+                        <div className={styles.padrao}>
+                            <label htmlFor='IdSabor' className={styles.labelPadrao}>Sabor</label>
+                            <input 
+                            className={styles.inputMarSab} 
+                            type="text" 
+                            name="nameSabor" 
+                            id="IdSabor" 
+                            placeholder='Insira o Sabor do produto'
+                            />
                         </div>
                     </div>
-                    <div>
+                    <div className={styles.alingPadrao}>
                         <div>
-                            <label htmlFor='IdPesoProduto'>Peso do Produto</label>
+                            <label htmlFor='IdPesoProduto' className={styles.labelPadrao}>Peso do Produto</label>
                             <input type="number" name="namePesoProduto" id="IdPesoProduto" />
                         </div>
                         <div>
-                            <label htmlFor='IdUnidadesDisponiveis'>Unidades Disponiveis</label>
+                            <label htmlFor='IdUnidadesDisponiveis' className={styles.labelPadrao}>Unidades Disponiveis</label>
                             <input type="number" name="nameUnidadesDisponivei" id="IdUnidadesDisponiveis" />
                         </div>
                         <div>
-                            <label htmlFor='IdQuantidadeReserva'>Quantidades para reserva</label>
+                            <label htmlFor='IdQuantidadeReserva' className={styles.labelPadrao}>Quantidades para reserva</label>
                             <input type="number" name="nameQuantidadeReserva" id="IdQuantidadeReserva" />
                         </div>
                         <div>
-                            <label htmlFor='IdDiaReserva'>Dias de reserva</label>
+                            <label htmlFor='IdDiaReserva' className={styles.labelPadrao}>Dias de reserva</label>
                             <input type="number" name="nameDiaReserva" id="IdDiaReserva" />
                         </div>
                     </div>

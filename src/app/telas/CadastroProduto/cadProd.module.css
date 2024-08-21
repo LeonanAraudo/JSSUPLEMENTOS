@@ -1,11 +1,13 @@
 .title{
-    margin: 30px;
+    text-align: center;
 }
 .forme{
     width: 100%;
     height: 450px;
     display: flex;
     flex-direction: row;
+    background-color: #F9F9F9;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.2);
 }
 .primaMetade{
     width: 50%;
@@ -17,13 +19,16 @@
 .segunMetade{
     width: 50%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 .selectImg{
     display: none;
 }
 .labels {
-    width: 50%;
-    height: 55%;
+    width: 45%;
+    height: 70%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,6 +36,7 @@
     color: #ffffff;
     cursor: pointer;
     overflow: hidden;
+    border-radius: 5px;
 }
 .selectText{
     z-index: 2;
@@ -41,5 +47,99 @@
     width: 100%;
     height: 100%;
     transform: scale(1)
-   
+}
+.inputNP{
+    height: 38px;
+    font-size: 15px;
+}
+.inputDesc{
+    height: 50px;
+    color: black;
+    font-weight:500;
+    font-size: 15px;
+
+}
+.inputMarSab{
+    height: 32px;
+    width: 200px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #DCDCDC;
+    padding-left: 5px;
+    font-size: 15px;
+
+}
+.moneyInput{
+    background-color: #DCDCDC;
+    border: none;
+    outline: none;
+    height: 30px;
+    border-radius: 5px;
+    margin-left: 5px;
+    font-size: 15px;
+}
+.backgroundInputs{
+    width: 80%;
+    border: none;
+    background-color: #DCDCDC;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding-left: 4px ;
+    font-size: 15px;
+}
+.labelPadrao{
+    font-weight: bold;
+    margin:5px;
+}
+.labelPadraoOut{
+    font-weight: bold;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+.padrao{
+    display: flex;
+    flex-direction: column;
+    
+}
+.alingPadrao{
+    display: flex;
+    flex-direction: row;
+}
+.Gap{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.dinheiros{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+.simbolDinheiro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    border-radius: 7px;
+    background-color: #DCDCDC;
+    color: #42A307;
+    font-weight: bold;
+}
+.optionsTipo{
+    height: 33px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: #DCDCDC;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    width: 100%;
+    gap: 170px;
 }
