@@ -9,43 +9,53 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 
 interface FormData{
-    selectFile: String;
-    NomeProduto: String;
-    DescProduto:String;
-    namePrecoVenda:String;
-    namePrecoMercado:String;
-    Selecione: String;
-    nameMarca:String;
-    nameSabor:String;
-    namePesoProduto:String;
-    nameUnidadesDisponivei:String;
+    Nome:string;
+    Preco:string;
+    Descricao:string;
+    Marca:string;
+    Sabor:string;
+    Peso_Produto:string;
+    Quantidade:string;
+    Foto:string;
+    Tipo_produto:string;
+    Preco_Antes:string;
 }
+
 export default function CadastroProd() {
-const [formData,setFormData] = useState<FormData>({
-    selectFile: "",
-    NomeProduto: "",
-    DescProduto:"",
-    namePrecoVenda:"",
-    namePrecoMercado:"",
-    Selecione: "",
-    nameMarca:"",
-    nameSabor:"",
-    namePesoProduto:"",
-    nameUnidadesDisponivei:"",
-})
+        
+    const [formData,setFormData] = useState<FormData>({
+        Nome:"",
+        Preco:"",
+        Descricao:"",
+        Marca:"",
+        Sabor:"",
+        Peso_Produto:"",
+        Quantidade:"",
+        Foto:"",
+        Tipo_produto:"",
+        Preco_Antes:"",
+    })
 
-const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-const router = useRouter()
+    const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+    const router = useRouter()
 
-const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+    const handleChange =(e: ChangeEvent<HTMLInputElement>) =>{
+        const { name, value} = e.target;
+        setFormData((prev) => ({...prev,[name]:value}));
+    }
+    const handleChangere =(e: ChangeEvent<HTMLTextAreaElement>) =>{
+        const { name, value} = e.target;
+        setFormData((prev) => ({...prev,[name]:value}));
+    }
+    const handleChangese =(e: ChangeEvent<HTMLSelectElement>) =>{
+        const { name, value} = e.target;
+        setFormData((prev) => ({...prev,[name]:value}));
+    }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/produto', formData);
+      const response = await axios.post('/api/cadProduto', formData);
       setMessage({ type: 'success', text: 'produto criado com sucesso!' });
       router.push('/telas/principalAdm');
     } catch (error) {
@@ -54,9 +64,6 @@ const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       }
     }
   };
-
-
-
     const [imageSrc, setImageSrc] = useState<string | null>(null);
 
     const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -65,6 +72,10 @@ const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
             const imageUrl = URL.createObjectURL(file);
             setImageSrc(imageUrl);
         }
+    };
+    const handleDivClick = () => {
+        const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+        fileInput.click(); 
     };
 
     return (
@@ -77,30 +88,35 @@ const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
                 <h2>Cadastro de Produto</h2>
             </div>
 
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className={styles.forme}>
                     <div className={styles.primaMetade}>
                             <input
-                                onChange={handleFileChange}
                                 id="Files"
-                                name="selectFile"
-                                className={styles.selectImg}
+                                name="Foto"
                                 type="file"
                                 required
+                                className={styles.inputImag}
+                                value={formData.Foto}
+                                onChange={(event) => {
+                                    handleFileChange(event);
+                                    handleChange(event); 
+                                }}
                             />
-                        <label htmlFor="Files" className={styles.labels}>
-                        {imageSrc && (
-                                <img
-                                    src={imageSrc}
-                                    alt="Preview"
-                                    className={styles.imagePreview}
-                                />
-                            )}
-                            
+                        <div onChange={handleDivClick} style={{
+                            backgroundImage: imageSrc ? `url(${imageSrc})` : 'none',
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            width: '50%',
+                            height: '75%', 
+                            border: '1px solid #ccc', 
+                            marginTop: '10px', 
+                        }}></div>
+                        <label htmlFor="Files" className={styles.labelImg}>
                             <p className={styles.selectText}>Selecione a imagem do produto 
                                 <FontAwesomeIcon
                                             icon={faImage}
-                                            style={{ color: "white", width: 18,height: 13,  }}
+                                            style={{ color: "black", width: 18,height: 13,  }}
                                             aria-label="img icon"
                                         /></p>
                         </label>
@@ -110,10 +126,12 @@ const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
                             <label htmlFor='NomeProd' className={styles.labelPadrao}>Nome</label>
                             <input 
                             type='text'
-                            name='NomeProduto'
+                            name='Nome'
                             id='NomeProd'
                             className={`${styles.inputNP} ${styles.backgroundInputs}`}
                             placeholder='Insira o nome do produto'
+                            value={formData.Nome}
+                            onChange={handleChange}
                             required
                             />
                         </div>
@@ -121,10 +139,12 @@ const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
                             <label htmlFor='Descricao' className={styles.labelPadrao}>Descrição</label>
                             <textarea 
                             id='Descricao'
-                            name='DescProduto' 
+                            name='Descricao' 
                             placeholder='Descreva o produto'
                             className={`${styles.inputDesc} ${styles.backgroundInputs} ${montserrat.className}`}
                             required
+                            value={formData.Descricao}
+                            onChange={handleChangere}
                             ></textarea>
                         </div>
                         <div className={styles.dinheiros}>
@@ -137,9 +157,11 @@ const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
                                         <input 
                                         className={styles.moneyInput} 
                                         type='number' 
-                                        name='namePrecoVenda' 
+                                        name='Preco' 
                                         id='IdPrecoVenda'
                                         required
+                                        value={formData.Preco}
+                                        onChange={handleChange}
                                         />                                                                 
                                </div>
                             </div>
@@ -153,16 +175,25 @@ const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
                                         <input 
                                         className={styles.moneyInput} 
                                         type='number' 
-                                        name='namePrecoMercado' 
+                                        name='Preco_Antes' 
                                         id='IdPrecoMercado'
                                         required
+                                        value={formData.Preco_Antes}
+                                        onChange={handleChange}
                                         />
                                     </div>
                             </div>
                             </div>
                             <div className={styles.Gap}>
                                 <label htmlFor='SelectType' className={styles.labelPadraoOut}>Tipo de Produto</label>
-                                <select className={styles.optionsTipo} name="Selecione" id="SelectType" required>
+                                <select 
+                                className={styles.optionsTipo} 
+                                name="Tipo_produto" 
+                                id="SelectType" 
+                                required
+                                value={formData.Tipo_produto}
+                                onChange={handleChangese}
+                                >
                                     <option>Ame</option>
                                 </select>
                             </div>    
@@ -173,10 +204,12 @@ const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
                                 <input 
                                 className={styles.inputMarSab} 
                                 type="text" 
-                                name="nameMarca" 
+                                name="Marca" 
                                 id="IdMarca" 
                                 placeholder='Insira a Marca do produto'
                                 required
+                                value={formData.Marca}
+                                onChange={handleChange}
                                 />
                             </div>
                             <div className={styles.a}>
@@ -184,10 +217,12 @@ const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
                                 <input 
                                 className={styles.inputMarSab} 
                                 type="text" 
-                                name="nameSabor" 
+                                name="Sabor" 
                                 id="IdSabor" 
                                 placeholder='Insira o Sabor do produto'
                                 required
+                                value={formData.Sabor}
+                                onChange={handleChange}
                                 />
                             </div>
                         </div>
@@ -196,20 +231,24 @@ const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
                                 <label htmlFor='IdPesoProduto' className={styles.labelPadrao}>Peso do Produto</label>
                                 <input 
                                 type="text" 
-                                name="namePesoProduto" 
+                                name="Peso_Produto" 
                                 id="IdPesoProduto" 
                                 className={styles.inputNumbers}
                                 required
+                                value={formData.Peso_Produto}
+                                onChange={handleChange}
                                 />
                             </div>
                             <div className={styles.padrao}>
                                 <label htmlFor='IdUnidadesDisponiveis' className={styles.labelPadrao}>Unidades Disponiveis</label>
                                 <input 
                                 type="number" 
-                                name="nameUnidadesDisponivei" 
+                                name="Quantidade" 
                                 id="IdUnidadesDisponiveis" 
                                 className={styles.inputNumbers}
                                 required
+                                value={formData.Quantidade}
+                                onChange={handleChange}
                                 />
                             </div>
                         </div>
