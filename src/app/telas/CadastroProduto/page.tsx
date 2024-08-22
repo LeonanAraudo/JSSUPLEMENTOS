@@ -4,9 +4,59 @@ import { faImage} from '@fortawesome/free-regular-svg-icons';
 import Header from "@/componentes/headerAdm";
 import styles from "./cadProd.module.css";
 import { montserrat } from '../../fonts';
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent,FormEvent } from 'react';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
+interface FormData{
+    selectFile: String;
+    NomeProduto: String;
+    DescProduto:String;
+    namePrecoVenda:String;
+    namePrecoMercado:String;
+    Selecione: String;
+    nameMarca:String;
+    nameSabor:String;
+    namePesoProduto:String;
+    nameUnidadesDisponivei:String;
+}
 export default function CadastroProd() {
+const [formData,setFormData] = useState<FormData>({
+    selectFile: "",
+    NomeProduto: "",
+    DescProduto:"",
+    namePrecoVenda:"",
+    namePrecoMercado:"",
+    Selecione: "",
+    nameMarca:"",
+    nameSabor:"",
+    namePesoProduto:"",
+    nameUnidadesDisponivei:"",
+})
+
+const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+const router = useRouter()
+
+const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('/api/produto', formData);
+      setMessage({ type: 'success', text: 'produto criado com sucesso!' });
+      router.push('/telas/principalAdm');
+    } catch (error) {
+      if (error instanceof Error) {
+        setMessage({ type: 'error', text: 'Erro ao criar rpoduto: ' + error.message });
+      }
+    }
+  };
+
+
+
     const [imageSrc, setImageSrc] = useState<string | null>(null);
 
     const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -36,6 +86,7 @@ export default function CadastroProd() {
                                 name="selectFile"
                                 className={styles.selectImg}
                                 type="file"
+                                required
                             />
                         <label htmlFor="Files" className={styles.labels}>
                         {imageSrc && (
@@ -50,7 +101,7 @@ export default function CadastroProd() {
                                 <FontAwesomeIcon
                                             icon={faImage}
                                             style={{ color: "white", width: 18,height: 13,  }}
-                                            aria-label="Carrinho de compras"
+                                            aria-label="img icon"
                                         /></p>
                         </label>
                     </div>
@@ -63,6 +114,7 @@ export default function CadastroProd() {
                             id='NomeProd'
                             className={`${styles.inputNP} ${styles.backgroundInputs}`}
                             placeholder='Insira o nome do produto'
+                            required
                             />
                         </div>
                         <div className={`${styles.DescicaoProduto} ${styles.padrao}`} >
@@ -72,6 +124,7 @@ export default function CadastroProd() {
                             name='DescProduto' 
                             placeholder='Descreva o produto'
                             className={`${styles.inputDesc} ${styles.backgroundInputs} ${montserrat.className}`}
+                            required
                             ></textarea>
                         </div>
                         <div className={styles.dinheiros}>
@@ -81,14 +134,14 @@ export default function CadastroProd() {
                                     <div className={styles.simbolDinheiro}>
                                         <p>R$</p>
                                     </div>
-                                    
                                         <input 
                                         className={styles.moneyInput} 
                                         type='number' 
                                         name='namePrecoVenda' 
-                                        id='IdPrecoVenda'/>
-                                    
-                                </div>
+                                        id='IdPrecoVenda'
+                                        required
+                                        />                                                                 
+                               </div>
                             </div>
                             <div className={styles.Gap}>
                                 <label htmlFor='IdPrecoMercado' className={styles.labelPadrao}>Preço de Mercado</label>
@@ -101,13 +154,15 @@ export default function CadastroProd() {
                                         className={styles.moneyInput} 
                                         type='number' 
                                         name='namePrecoMercado' 
-                                        id='IdPrecoMercado'/>
+                                        id='IdPrecoMercado'
+                                        required
+                                        />
                                     </div>
                             </div>
                             </div>
                             <div className={styles.Gap}>
                                 <label htmlFor='SelectType' className={styles.labelPadraoOut}>Tipo de Produto</label>
-                                <select className={styles.optionsTipo} name="Selecione" id="SelectType">
+                                <select className={styles.optionsTipo} name="Selecione" id="SelectType" required>
                                     <option>Ame</option>
                                 </select>
                             </div>    
@@ -121,6 +176,7 @@ export default function CadastroProd() {
                                 name="nameMarca" 
                                 id="IdMarca" 
                                 placeholder='Insira a Marca do produto'
+                                required
                                 />
                             </div>
                             <div className={styles.a}>
@@ -131,6 +187,7 @@ export default function CadastroProd() {
                                 name="nameSabor" 
                                 id="IdSabor" 
                                 placeholder='Insira o Sabor do produto'
+                                required
                                 />
                             </div>
                         </div>
@@ -142,6 +199,7 @@ export default function CadastroProd() {
                                 name="namePesoProduto" 
                                 id="IdPesoProduto" 
                                 className={styles.inputNumbers}
+                                required
                                 />
                             </div>
                             <div className={styles.padrao}>
@@ -151,6 +209,7 @@ export default function CadastroProd() {
                                 name="nameUnidadesDisponivei" 
                                 id="IdUnidadesDisponiveis" 
                                 className={styles.inputNumbers}
+                                required
                                 />
                             </div>
                         </div>
