@@ -6,17 +6,19 @@ import { faUser} from '@fortawesome/free-regular-svg-icons';
 import {openSans} from '../app/fonts';
 import Link from "next/link";
 
-export default function Header () {
+export default function HeaderAdm () {
     return (
         <>
         <header className={styles.heade}>
             <div className={styles.logo}>
+                <Link href={'/telas/principalAdm'} className={styles.linke}>
                 <Image
                     src='/suples.png'
                     width={300} 
                     height={150}
                     alt='Logo image'
                 />
+                </Link>
             </div>
             <div className={styles.altur}>
                 <input className={styles.inpu} type="search" />

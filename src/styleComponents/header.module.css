@@ -35,6 +35,9 @@
     justify-content: space-around;
     list-style-type: none;
 }
+.linke{
+    cursor:auto;
+}
 .noTem{
     color:#FF4D00 ;
     height: 3px;

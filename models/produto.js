@@ -1,7 +1,7 @@
 import DataTypes from 'sequelize';
 import sequelize from '../config/database.js';
 
-const produto = sequelize.define('Produto', {
+const produto = sequelize.define('produto', {
     Produto_id:{
       type: DataTypes.INTEGER,
       autoIncrement:true,
@@ -20,7 +20,7 @@ const produto = sequelize.define('Produto', {
       allowNull:true,
     },
     Data_cad:{
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull:true,
     },
     Marca:{
@@ -40,7 +40,7 @@ const produto = sequelize.define('Produto', {
       allowNull:true,
     },
     Foto:{
-      type: DataTypes.MEDIUMINT,
+      type: DataTypes.STRING,
       allowNull:true,
     },
     Tipo_produto:{

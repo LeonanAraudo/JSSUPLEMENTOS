@@ -15,7 +15,7 @@ interface FormData{
     Marca:string;
     Sabor:string;
     Peso_Produto:string;
-    Quantidade:string;
+    Quantidade:number;
     Foto:string;
     Tipo_produto:string;
     Preco_Antes:string;
@@ -30,7 +30,7 @@ export default function CadastroProd() {
         Marca:"",
         Sabor:"",
         Peso_Produto:"",
-        Quantidade:"",
+        Quantidade:0,
         Foto:"",
         Tipo_produto:"",
         Preco_Antes:"",
@@ -194,7 +194,11 @@ export default function CadastroProd() {
                                 value={formData.Tipo_produto}
                                 onChange={handleChangese}
                                 >
-                                    <option>Ame</option>
+                                    <option>Tipos</option>
+                                    <option>Creatina</option>
+                                    <option>Whey</option>
+                                    <option>Promoção</option>
+                                    
                                 </select>
                             </div>    
                         </div>

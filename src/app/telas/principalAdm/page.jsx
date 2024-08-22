@@ -1,5 +1,5 @@
 "use client"
-import Header from '../../../componentes/header'
+import HeaderAdm from '../../../componentes/headerAdm'
 import styles from './adm.module.css'
 import {openSans} from '../../fonts';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
@@ -11,7 +11,7 @@ export default function MainAdm() {
   return (
     <main className={styles.container}> 
     <header className={styles.heder}>
-       <Header/>
+       <HeaderAdm/>
     </header>
     <nav className={styles.opcoes}>
       <ul className={`${openSans.className}  ${styles.alinhas}`}>

@@ -2,13 +2,11 @@ import produto from "../../models/produto";
 import sequelize from "../../config/database";
 
 export default async function handler(req,res){
-    await sequelize.sync();
     if(req.method === 'POST'){
         const { 
               Nome,
               Preco,
               Descricao,
-              Data_cad,
               Marca,
               Sabor,
               Peso_Produto,
@@ -17,11 +15,10 @@ export default async function handler(req,res){
               Tipo_produto,
               Preco_Antes} = req.body;
             try{
-                const produto = await produto.create({ 
+                const createProduto = await produto.create({ 
                     Nome,
                     Preco,
                     Descricao,
-                    Data_cad,
                     Marca,
                     Sabor,
                     Peso_Produto,
@@ -29,7 +26,7 @@ export default async function handler(req,res){
                     Foto,
                     Tipo_produto,
                     Preco_Antes});
-      res.status(201).json(produto);
+      res.status(201).json(createProduto);
             } catch(error){
                 res.status(500).json({ error: 'Failed to create produto' });
             }
