@@ -22,8 +22,13 @@ export default function Card(){
                     </div>
                     <div className={styles.preco}>
                         <div>
+                            <div className={styles.notDescont}>
+                                <p className={styles.precoAntes}>R$ 200,00</p>
+                            </div>
+                        </div>
+                        <div>
                             <div className={styles.corta}></div>
-                            <p className={styles.precoAnterior}>R$ 115,00</p>
+                            <p className={styles.precoAgora}>R$ 115,00</p>
                         </div>
                     </div>
                         <div className={styles.saiba}>

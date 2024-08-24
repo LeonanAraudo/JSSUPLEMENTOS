@@ -32,16 +32,19 @@
     height: 34px;
     
 }
-.precoAnterior{
+.precoAgora{
     margin: 0;
     color: #FF4D00;
     font-weight: bold;
+}
+.notDescont{
+    background-color: red;
 }
 .saiba{
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #9b9b9b;
+    color: #616161;
     height: 20px;
     cursor: pointer;
 }
@@ -51,7 +54,9 @@
     cursor: pointer;
 }
 .saiba:hover{
-    color: #ffffff
+    color: #181818;
+    transform: scale(1.04);
+   
 }
 .icones{
     width: 10px;
