@@ -14,3 +14,8 @@ export const openSans = Open_Sans({
   weight: "400",
   subsets: ["latin"]
 })
+
+export const openeSans = Open_Sans({
+  weight: "600",
+  subsets: ["latin"]
+})

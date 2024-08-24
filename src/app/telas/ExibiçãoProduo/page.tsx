@@ -1,48 +1,53 @@
-"use client"
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import styles from './exibPro.module.css' 
+import Header from '@/componentes/header'
+import Image from 'next/image'
+import { openeSans } from '../../fonts'
+import { openSans } from '../../fonts'
 
-interface Produto {
-  Produto_id: string;
-  nome: string;
-  descricao: string;
-  preco: number;
-}
-
-interface ProdutoProps {
-  Produto_id: string;
-}
-
-export default function ProdutoComponent({ Produto_id }: ProdutoProps) {
-  const [produto, setProduto] = useState<Produto | null>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchProduto = async () => {
-      try {
-        const response = await axios.get<Produto>(`/api/cadProduto/${Produto_id}`);
-        setProduto(response.data);
-      } catch (err: any) {
-        setError(err.response?.data?.error || 'Erro ao buscar produto');
-      }
-    };
-
-    fetchProduto();
-  }, [Produto_id]);
-
-  if (error) {
-    return <p>{error}</p>;
-  }
-
-  if (!produto) {
-    return <p>Carregando...</p>;
-  }
-
+export default function MostrarProduto(){
   return (
-    <div>
-      <h1>{produto.nome}</h1>
-      <p>{produto.descricao}</p>
-      <p>Preço: R${produto.preco.toFixed(2)}</p>
+    <div className={styles.container}>
+      <header>
+        <Header/>
+      </header>
+      <div className={styles.areaDeExibicao}>
+        <div className={styles.imgProduto}>
+          <div className={styles.Border}>
+            <Image
+              src="/roxo.webp"
+              alt="Descrição da Imagem"
+              width={360}
+              height={363}
+            />
+          </div>
+        </div>
+        <div>
+          <div>
+              <div className={`${openSans.className} ${styles.title}`}>
+                <h2>CREATINA CANIBAL INC
+                MONOHYDRATE 300G</h2>
+                <p className={styles.desc}>creatina da canibal inc 300 gramas  sem sabor</p>
+              </div>
+              <div className={styles.preco}>
+                <div className={styles.diminui}>
+                  <div className={styles.corta}></div>
+                  <p className={`${styles.acinza} ${openSans.className}`}>De: R$ 100,00</p>
+                </div>
+                
+                <div className={styles.precoVenda}>
+                  <p className={openSans.className}>Por: <span className={`${openSans.className} ${styles.laranja}`}>R$ 89,99</span></p>
+                  <p className={openSans.className}>à vista no Pix</p>
+                </div>
+                
+                <div className={styles.precoVenda}>
+                  <p className={openSans.className}>ou <strong>R$ 95,00</strong></p>
+                  <p className={openSans.className}>em até <span className={`${styles.alaranja} ${openeSans.className}`}>2x</span> de <span className={`${styles.alaranja} ${openeSans.className}`}>R$ 47,50</span></p>
+                </div>
+            </div>
+              
+            </div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
