@@ -1,11 +1,11 @@
 import Login from './telas/login/page'
-import CadastroProd from './telas/CadastroProduto/page';
+import  ProdutoComponent from './telas/ExibiçãoProduo/page'
 
 export default function Home() {
   return (
     <>
       <div>
-        <CadastroProd />
+        <ProdutoComponent Produto_id='1'/>
       </div>
     </>
   );

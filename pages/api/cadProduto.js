@@ -2,6 +2,7 @@ import produto from "../../models/produto";
 import sequelize from "../../config/database";
 
 export default async function handler(req,res){
+    await sequelize.sync();
     if(req.method === GET){
         const {Produto_id} = req.query;        
         try{
