@@ -4,7 +4,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesDown } from '@fortawesome/free-solid-svg-icons'; 
 import Image from 'next/image';
 
-export default function Card(){
+
+
+interface Produto {
+    Nome: string;
+    Preco: string;
+    Preco_Antes: string;
+    imagemUrl: string;
+    descricaoImagem: string;
+  }
+  interface CardProps {
+    produto: Produto; 
+  }
+
+export default function Card({ produto }:CardProps){
+
     return(
         <>
             <main className={styles.container1}>
@@ -18,30 +32,18 @@ export default function Card(){
                 </div>
                 <div className={`${montserrat.className} ${styles.info}`}>
                     <div className={styles.containerTitle}>
-                        <p className={styles.textTitle}>Creatina full transformer </p>
+                        <p className={styles.textTitle}>{produto.Nome}</p>
                     </div>
-                    <div className={styles.preco}>
-                        <div>
+                    <div className={styles.prece}>
                             <div className={styles.notDescont}>
-                                <p className={styles.precoAntes}>R$ 200,00</p>
+                                <div className={styles.corta}></div>
+                                <p className={styles.precoAntes}>De: R$ {produto.Preco_Antes}</p>
                             </div>
-                        </div>
-                        <div>
-                            <div className={styles.corta}></div>
-                            <p className={styles.precoAgora}>R$ 115,00</p>
-                        </div>
+                            <div>
+                                <p className={styles.precoAgora}>Por: R$ {produto.Preco}</p>
+                            </div>
                     </div>
-                        <div className={styles.saiba}>
-                                <p className={styles.mais}>Saiba mais</p>
-                                <FontAwesomeIcon
-                                icon={faAnglesDown}
-                                className={styles.icones}
-                                aria-label="Saiba mais"
-                            />
-                            
-                        </div>
                 </div>
-
             </main>
         </>
     )

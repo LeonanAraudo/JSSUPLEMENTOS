@@ -57,3 +57,28 @@
     font-weight: bold;
     font-size: 27px;
 }
+.infos{
+    display: flex;
+    flex-direction: row;
+    width: 260px;
+    font-weight: bold;
+}
+.sabor,.marca{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.black{
+    background-color: black;
+    color: #ffffff;
+    height: 25px;
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 13px;
+}

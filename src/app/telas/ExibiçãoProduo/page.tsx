@@ -5,6 +5,7 @@ import { openeSans } from '../../fonts'
 import { openSans } from '../../fonts'
 
 export default function MostrarProduto(){
+  
   return (
     <div className={styles.container}>
       <header>
@@ -42,6 +43,16 @@ export default function MostrarProduto(){
                 <div className={styles.precoVenda}>
                   <p className={openSans.className}>ou <strong>R$ 95,00</strong></p>
                   <p className={openSans.className}>em até <span className={`${styles.alaranja} ${openeSans.className}`}>2x</span> de <span className={`${styles.alaranja} ${openeSans.className}`}>R$ 47,50</span></p>
+                </div>
+                <div className={styles.infos}>
+                  <div className={styles.sabor}>
+                    <div><p className={openeSans.className}>Sabor</p></div>
+                    <div className={`${openSans.className} ${styles.black}`}><p>chocolate</p></div>
+                  </div>
+                  <div className={styles.marca}>
+                    <div><p className={openeSans.className}>Marca</p></div>
+                    <div className={`${openSans.className} ${styles.black}`}><p>Black skull</p></div>
+                  </div>
                 </div>
             </div>
               
