@@ -1,6 +1,6 @@
 .container1{
     width: 245px;
-    height: 340px;
+    height: 320px;
     border-radius: 5px;
     background-color: #ffffff;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
@@ -39,7 +39,6 @@
     color: #FF4D00;
     font-weight: bold;
     font-size: 17px;
-
 }
 .precoAntes{
     margin: 0;
