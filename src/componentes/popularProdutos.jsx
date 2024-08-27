@@ -7,12 +7,12 @@ import Link from 'next/link';
 // import GetProdutos from "../../pages/api/getProdutos"
 import { useEffect, useState } from 'react';
 
-export default function Popular(){
+export default function Popular({produto}){
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     async function fetchPosts() {
-      const response = await fetch('/api/getProdutos');
+      const response = await fetch('/api/getAllProduto/getProdutos');
       const data = await response.json();
       setPosts(data);
     }
@@ -35,7 +35,7 @@ export default function Popular(){
                 >
                   {posts.map((post) => 
                     <SplideSlide key={post.Produto_id}>
-                      <Link href={"/telas/login"}>          
+                      <Link className={styles.retira} href={"/telas/login"}>          
                           <Card  produto={{
                               Nome: post.Nome,
                               Preco: post.Preco,

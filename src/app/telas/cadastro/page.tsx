@@ -31,7 +31,7 @@ export default function Cadastrar() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/user', formData);
+      const response = await axios.post('/api/user/user', formData);
       setMessage({ type: 'success', text: 'Usuário criado com sucesso!' });
       router.push('/telas/login');
     } catch (error) {

@@ -1,5 +1,5 @@
-import produto from "../../models/produto";
-import sequelize from "../../config/database";
+import produto from "../../../models/produto";
+import sequelize from "../../../config/database";
 
 export default async function GetProdutos(req,res){
     if(req.method === "GET"){

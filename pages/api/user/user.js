@@ -1,5 +1,5 @@
-import sequelize from '../../config/database';
-import usuario from '../../models/usuario';
+import sequelize from '../../../config/database';
+import usuario from '../../../models/usuario';
 
 export default async function handler(req, res) {
   await sequelize.sync();

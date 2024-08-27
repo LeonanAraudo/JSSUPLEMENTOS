@@ -4,18 +4,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping,faAnglesDown} from '@fortawesome/free-solid-svg-icons'; 
 import { faUser} from '@fortawesome/free-regular-svg-icons'; 
 import {openSans} from '../app/fonts';
-
+import Link from "next/link";
 export default function Header () {
     return (
         <>
         <header className={styles.heade}>
             <div className={styles.logo}>
+                <Link href={"/telas/principalUser"}>
                 <Image
                     src='/suples.png'
                     width={300} 
                     height={150}
                     alt='Logo image'
                 />
+                </Link>
             </div>
             <div className={styles.altur}>
                 <input className={styles.inpu} type="search" />
