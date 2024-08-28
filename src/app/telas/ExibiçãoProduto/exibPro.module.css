@@ -26,10 +26,13 @@
     border-radius: 5px;
 }
 .title{
-    width: 60%;
+    width: 100%;
 }
 .desc{
-    font-size: 18px;
+    font-size: 15px;
+}
+.preco{
+    margin-top: 40px;
 }
 .acinza{
     height: 10px;
@@ -63,23 +66,31 @@
     width: 260px;
     font-weight: bold;
 }
+.infosGerais{
+    margin-top: 40px;
+    width: 350px;
+    padding-left: 10px;
+}
 .sabor,.marca{
     width: 50%;
     height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items:flex-start;
     flex-direction: column;
+}
+.spaceLeft{
+    margin-left: 15px;
 }
 .black{
     background-color: black;
     color: #ffffff;
     height: 25px;
-    width: 90px;
+    width: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 13px;
 }
 .carrinho{
@@ -91,7 +102,7 @@
 .borda{
     width: 80%;
     height: 58%;
-    border: 1px solid rgb(99, 99, 99);
+    border: 1px solid rgb(189, 189, 189);
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -138,4 +149,8 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+}
+.inserirCarrinho:hover{
+    background-color: #399600;
+
 }

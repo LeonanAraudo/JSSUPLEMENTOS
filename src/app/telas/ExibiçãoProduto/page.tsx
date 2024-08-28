@@ -30,10 +30,10 @@ export default function MostrarProduto(){
           </div>
         </div>
         <div>
-          <div>
+          <div className={styles.infosGerais}>
               <div className={`${openSans.className} ${styles.title}`}>
                 <h2>Creatina hiper mega blaster ultra intra</h2>
-                <p className={styles.desc}>aaaaaaaaaaaaaa aaaaaaaa aaaaaaaaaaaa</p>
+                <p className={styles.desc}>creatina da canibal inc 300 gramas  sem sabor</p>
               </div>
               <div className={styles.preco}>
                 <div className={styles.diminui}>
@@ -42,7 +42,7 @@ export default function MostrarProduto(){
                 </div>
                 
                 <div className={styles.precoVenda}>
-                  <p className={openSans.className}>Por: <span className={`${openSans.className} ${styles.laranja}`}>R$ 89,99</span></p>
+                  <p className={openSans.className}>Por: <span className={`${openeSans.className} ${styles.laranja}`}>R$ 89,99</span></p>
                   <p className={openSans.className}>à vista no Pix</p>
                 </div>
                 
@@ -52,11 +52,11 @@ export default function MostrarProduto(){
                 </div>
                 <div className={styles.infos}>
                   <div className={styles.sabor}>
-                    <div><p className={openeSans.className}>Sabor</p></div>
+                    <div className={styles.spaceLeft}><p className={openeSans.className}>Sabor</p></div>
                     <div className={`${openSans.className} ${styles.black}`}><p>chocolate</p></div>
                   </div>
                   <div className={styles.marca}>
-                    <div><p className={openeSans.className}>Marca</p></div>
+                    <div className={styles.spaceLeft}><p className={openeSans.className}>Marca</p></div>
                     <div className={`${openSans.className} ${styles.black}`}><p>Black skull</p></div>
                   </div>
                 </div>
