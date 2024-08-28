@@ -1,11 +1,11 @@
 "use client"
-import HeaderAdm from '../../../componentes/headerAdm'
+import HeaderAdm from '../../../componentes/Header/headerAdm/headerAdm'
 import styles from './adm.module.css'
 import {openSans} from '../../fonts';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import Popular from '@/componentes/popularProdutos';
-import Drawer from '../../../componentes/drawer'
+import Drawer from '../../../componentes/Drawers/DrawerAdm/drawer'
 
 export default function MainAdm() {
   return (

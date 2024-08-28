@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import styles from '../styleComponents/drawe.module.css';
-import {openSans} from '../app/fonts';
+import styles from '../../../styleComponents/drawe.module.css';
+import {openSans} from '../../../app/fonts';
 import {faBars} from '@fortawesome/free-solid-svg-icons'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

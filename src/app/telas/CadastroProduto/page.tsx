@@ -1,7 +1,7 @@
 "use client";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-regular-svg-icons'; 
-import Header from "@/componentes/headerAdm";
+import Header from "@/componentes/Header/headerAdm/headerAdm";
 import styles from "./cadProd.module.css";
 import { montserrat } from '../../fonts';
 import React, { useState, ChangeEvent, FormEvent } from 'react';

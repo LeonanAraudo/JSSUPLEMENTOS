@@ -1,17 +1,16 @@
 import Image from "next/image";
-import styles from '../styleComponents/header.module.css';
+import styles from '../../../styleComponents/header.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear,faAnglesDown} from '@fortawesome/free-solid-svg-icons'; 
+import { faCartShopping,faAnglesDown} from '@fortawesome/free-solid-svg-icons'; 
 import { faUser} from '@fortawesome/free-regular-svg-icons'; 
-import {openSans} from '../app/fonts';
+import {openSans} from '../../../app/fonts';
 import Link from "next/link";
-
-export default function HeaderAdm () {
+export default function Header () {
     return (
         <>
         <header className={styles.heade}>
             <div className={styles.logo}>
-                <Link href={'/telas/principalAdm'} className={styles.linke}>
+                <Link href={"/telas/principalUser"}>
                 <Image
                     src='/suples.png'
                     width={300} 
@@ -56,13 +55,11 @@ export default function HeaderAdm () {
                         </div>
                     </li>
                     <li>
-                        <Link href={"/telas/login"}>
                         <FontAwesomeIcon
-                            icon={faGear}
+                            icon={faCartShopping}
                             style={{ color: "#ff8b00", width: 25,height:21, cursor: 'pointer', }}
                             aria-label="Carrinho de compras"
                         />
-                        </Link>
                     </li>
                 </ul>
             </nav>
