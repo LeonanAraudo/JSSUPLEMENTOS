@@ -17,7 +17,7 @@
     justify-content: center;
 }
 .Border{
-    width: 70%;
+    width: 75%;
     height: 85%;
     display: flex;
     align-items: center;
@@ -81,4 +81,61 @@
     justify-content: center;
     border-radius: 20px;
     font-size: 13px;
+}
+.carrinho{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.borda{
+    width: 80%;
+    height: 58%;
+    border: 1px solid rgb(99, 99, 99);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 45px;
+}
+.quantidade{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.quantes{
+    width: 80%;
+    height: 40px;
+    font-size: 17px;
+    background-color: #E2E2E2;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+}
+.divCarrinho{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inserirCarrinho{
+    width: 80%;
+    height: 40px;
+    font-size: 17px;
+    background-color: #266500;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }

@@ -1,22 +1,18 @@
+"use client"
 import styles from './exibPro.module.css' 
-import Header from '@/componentes/header'
 import Image from 'next/image'
 import { openeSans } from '../../fonts'
 import { openSans } from '../../fonts'
+import Header from '@/componentes/Header/headerUser/header'
+import { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown,faCartShopping } from '@fortawesome/free-solid-svg-icons'; 
 
-interface Produto {
-  Nome: string;
-  Preco: string;
-  Preco_Antes: string;
-  Foto: string;
-  Descricao: string;
-}
-interface CardProps {
-  produto: Produto; 
-}
-
-export default function MostrarProduto( {produto}:CardProps){
-  
+export default function MostrarProduto(){
+  const [count,setCount] = useState(0)
+  const Handle = () => {
+    setCount(count + 1)
+  }
   return (
     <div className={styles.container}>
       <header>
@@ -36,8 +32,8 @@ export default function MostrarProduto( {produto}:CardProps){
         <div>
           <div>
               <div className={`${openSans.className} ${styles.title}`}>
-                <h2>{produto.Nome}</h2>
-                <p className={styles.desc}>{produto.Descricao}</p>
+                <h2>Creatina hiper mega blaster ultra intra</h2>
+                <p className={styles.desc}>aaaaaaaaaaaaaa aaaaaaaa aaaaaaaaaaaa</p>
               </div>
               <div className={styles.preco}>
                 <div className={styles.diminui}>
@@ -67,6 +63,33 @@ export default function MostrarProduto( {produto}:CardProps){
             </div>
               
             </div>
+        </div>
+        <div className={styles.carrinho}>
+          <div className={styles.borda}>
+            <div className={styles.quantidade}>
+              <button className={`${openSans.className} ${styles.quantes}`} onClick={Handle}>Quantidade:<span> </span>{count} 
+            <span>
+            <FontAwesomeIcon
+              icon={faChevronDown}
+              style={{ color: "#000000", width: 18,height: 13, cursor: 'pointer' }}
+              aria-label="Carrinho de compras"
+          />       
+            </span>
+              </button>
+                    
+            </div>           
+              <div className={styles.divCarrinho}>
+                  <button className={`${openSans.className} ${styles.inserirCarrinho}`}> 
+                    <span>
+                    <FontAwesomeIcon
+                      icon={faCartShopping}
+                      style={{ color: "#ffffff", width: 19,height: 15, cursor: 'pointer' }}
+                      aria-label="Carrinho de compras"
+                  />
+                    </span>    
+                    Adicionar ao Carrinho</button>
+              </div>
+          </div>
         </div>
       </div>
     </div>
