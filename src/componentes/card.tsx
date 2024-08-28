@@ -10,7 +10,7 @@ interface Produto {
     Nome: string;
     Preco: string;
     Preco_Antes: string;
-    imagemUrl: string;
+    Foto: string ;
     descricaoImagem: string;
   }
   interface CardProps {
@@ -24,7 +24,7 @@ export default function Card({ produto }:CardProps){
             <main className={styles.container1}>
                 <div  className={styles.imagePromo}>
                 <Image
-                  src="/creatinha.png"
+                  src={produto.Foto}
                   alt="Descrição da Imagem"
                   width={245}
                   height={238}

@@ -4,7 +4,18 @@ import Image from 'next/image'
 import { openeSans } from '../../fonts'
 import { openSans } from '../../fonts'
 
-export default function MostrarProduto(){
+interface Produto {
+  Nome: string;
+  Preco: string;
+  Preco_Antes: string;
+  Foto: string;
+  Descricao: string;
+}
+interface CardProps {
+  produto: Produto; 
+}
+
+export default function MostrarProduto( {produto}:CardProps){
   
   return (
     <div className={styles.container}>
@@ -25,9 +36,8 @@ export default function MostrarProduto(){
         <div>
           <div>
               <div className={`${openSans.className} ${styles.title}`}>
-                <h2>CREATINA CANIBAL INC
-                MONOHYDRATE 300G</h2>
-                <p className={styles.desc}>creatina da canibal inc 300 gramas  sem sabor</p>
+                <h2>{produto.Nome}</h2>
+                <p className={styles.desc}>{produto.Descricao}</p>
               </div>
               <div className={styles.preco}>
                 <div className={styles.diminui}>

@@ -3,8 +3,6 @@ import '@splidejs/react-splide/css';
 import Card from '@/componentes/card';
 import styles from '../styleComponents/popularProduto.module.css'
 import Link from 'next/link';
-// import produtos from "../../models/produtos"
-// import GetProdutos from "../../pages/api/getProdutos"
 import { useEffect, useState } from 'react';
 
 export default function Popular({produto}){
@@ -40,7 +38,8 @@ export default function Popular({produto}){
                               Nome: post.Nome,
                               Preco: post.Preco,
                               Preco_Antes: post.Preco_Antes,
-                              descricaoImagem: 'Descrição da imagem' 
+                              Foto: post.Foto,
+                              descricaoImagem: 'Produto' 
                               }} 
                           />
                       </Link>
