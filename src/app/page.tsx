@@ -1,4 +1,4 @@
-import MostrarProduto from "./telas/ExibiçãoProduto/page";
+import MostrarProduto from "./telas/ExibicaoProduto/[id]";
 export default function Home() {
   return (
     <>

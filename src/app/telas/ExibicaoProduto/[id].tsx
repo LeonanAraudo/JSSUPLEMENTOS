@@ -4,14 +4,43 @@ import Image from 'next/image'
 import { openeSans } from '../../fonts'
 import { openSans } from '../../fonts'
 import Header from '@/componentes/Header/headerUser/header'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown,faCartShopping } from '@fortawesome/free-solid-svg-icons'; 
+import { useRouter } from 'next/router';
+
+interface FormData {
+  Nome: string;
+  Preco: string;
+  Descricao: string;
+  Marca: string;
+  Sabor: string;
+  Peso_Produto: string;
+  Quantidade: number;
+  Tipo_produto: string;
+  Preco_Antes: string;
+}
 
 export default function MostrarProduto(){
   const [count,setCount] = useState(0)
   const Handle = () => {
     setCount(count + 1)
+  }
+  const router = useRouter();
+  const { id } = router.query;  
+  const [item, setItem] = useState<FormData | null>(null);
+  
+  useEffect(() => {
+    if (id) {
+      fetch(`/api/getProdutoId/${id}`)
+      .then((response) => response.json())
+      .then((data) => setItem(data));
+    }
+  }, [id]);
+  console.log("id:",id);
+  
+  if (!item) {
+    return <div>Loading...</div>;
   }
   return (
     <div className={styles.container}>
@@ -32,7 +61,7 @@ export default function MostrarProduto(){
         <div>
           <div className={styles.infosGerais}>
               <div className={`${openSans.className} ${styles.title}`}>
-                <h2>Creatina hiper mega blaster ultra intra</h2>
+                <h2>{item.Nome}</h2>
                 <p className={styles.desc}>creatina da canibal inc 300 gramas  sem sabor</p>
               </div>
               <div className={styles.preco}>

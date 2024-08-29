@@ -16,7 +16,9 @@ export default function Popular({produto}){
     }
 
     fetchPosts();
+    
   }, []);
+
     return(
         <div className={styles.spaceSlide}>
             <Splide
@@ -33,14 +35,14 @@ export default function Popular({produto}){
                 >
                   {posts.map((post) => 
                     <SplideSlide key={post.Produto_id}>
-                      <Link className={styles.retira} href={"/telas/login"}>          
+                      <Link className={styles.retira} href={`/telas/ExibicaoProduto/${post.Produto_id}`}>          
                           <Card  produto={{
                               Nome: post.Nome,
                               Preco: post.Preco,
                               Preco_Antes: post.Preco_Antes,
                               Foto: post.Foto,
                               descricaoImagem: 'Produto' 
-                              }} 
+                              }}
                           />
                       </Link>
                     </SplideSlide>

@@ -65,6 +65,7 @@
     flex-direction: row;
     width: 260px;
     font-weight: bold;
+    gap: 30px;
 }
 .infosGerais{
     margin-top: 40px;
