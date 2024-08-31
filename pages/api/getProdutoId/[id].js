@@ -7,9 +7,9 @@ export default async function GETProdutoID(req,res){
         try{
             const reqProduto = await produto.findByPk(id)  
             if(reqProduto){ 
-                res.status(201).json(reqProduto);
+                res.status(200).json(reqProduto);
             }else(
-                res.status(401).json("Produto não encontrado")
+                res.status(404).json("Produto não encontrado")
             )
         }catch(error){
             res.status(500).json({ error: 'erro ao buscar o produto' });

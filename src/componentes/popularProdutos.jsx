@@ -5,7 +5,7 @@ import styles from '../styleComponents/popularProduto.module.css'
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-export default function Popular({produto}){
+export default function Popular(){
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -18,6 +18,7 @@ export default function Popular({produto}){
     fetchPosts();
     
   }, []);
+  
 
     return(
         <div className={styles.spaceSlide}>
@@ -35,13 +36,13 @@ export default function Popular({produto}){
                 >
                   {posts.map((post) => 
                     <SplideSlide key={post.Produto_id}>
-                      <Link className={styles.retira} href={`/telas/ExibicaoProduto/${post.Produto_id}`}>          
+                      <Link className={styles.retira} href={`/telas/todos/${post.Produto_id}`}>          
                           <Card  produto={{
                               Nome: post.Nome,
                               Preco: post.Preco,
                               Preco_Antes: post.Preco_Antes,
                               Foto: post.Foto,
-                              descricaoImagem: 'Produto' 
+                              descricaoImagem:'Produto' 
                               }}
                           />
                       </Link>

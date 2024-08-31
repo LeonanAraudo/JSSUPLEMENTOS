@@ -1,9 +1,9 @@
-import MostrarProduto from "./telas/ExibicaoProduto/[id]";
+import Login from "./telas/login/page";
 export default function Home() {
   return (
     <>
       <div>
-        <MostrarProduto/>
+        <Login/>
       </div>
     </>
   );

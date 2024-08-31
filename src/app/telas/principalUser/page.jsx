@@ -4,7 +4,7 @@ import styles from './style1.module.css'
 import {openSans} from '../../fonts';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import Popular from '@/componentes/popularProdutos';
+import Popular from '../../../componentes/popularProdutos';
 import Drawer from '../../../componentes/Drawers/DrawerUser/drawer'
 export default function Main() {
   
