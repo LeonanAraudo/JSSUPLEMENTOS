@@ -2,6 +2,18 @@
     width: 100vw;
     height: 100vh;
 }
+.loading{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.carrega{
+    color: black;
+    font-size: 15;
+}
 .areaDeExibicao{
     width: 100%;
     height: 70%;

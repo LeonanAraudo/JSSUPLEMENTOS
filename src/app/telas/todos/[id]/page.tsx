@@ -6,11 +6,16 @@ import Image from 'next/image';
 import { openSans,openeSans} from '@/app/fonts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown,faCartShopping } from '@fortawesome/free-solid-svg-icons'; 
+import 'ldrs/ring'
+import { tailChase } from 'ldrs'
+
 interface PageProps {
   params: {
     id: string; 
   };
 }
+
+tailChase.register()
 
 interface Produto {
   Nome: string;
@@ -53,7 +58,13 @@ const Page: FC<PageProps> = ({ params }) => {
   
  
   if (loading) {
-    return <p>Carregando...</p>;
+    return <div className={styles.loading}><l-tail-chase
+    size="40"
+    speed="1.75" 
+    color="black" 
+  ></l-tail-chase>
+  <p className={`${openeSans.className} ${styles.carrega}`}>Carregando informações</p>
+  </div>;
   }
 
   if (!produto) {
