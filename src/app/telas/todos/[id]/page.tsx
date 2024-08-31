@@ -14,7 +14,6 @@ interface PageProps {
     id: string; 
   };
 }
-
 tailChase.register()
 
 interface Produto {

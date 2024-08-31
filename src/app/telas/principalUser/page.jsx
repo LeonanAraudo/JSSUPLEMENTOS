@@ -1,13 +1,12 @@
 "use client"
 import Header from '../../../componentes/Header/headerUser/header'
 import styles from './style1.module.css'
-import {openSans} from '../../fonts';
+import {openSans,openeSans} from '../../fonts';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import Popular from '../../../componentes/popularProdutos';
 import Drawer from '../../../componentes/Drawers/DrawerUser/drawer'
 export default function Main() {
-  
   return (
     <main className={styles.container}> 
     <header className={styles.heder}>
@@ -49,9 +48,13 @@ export default function Main() {
               </SplideSlide>
         </Splide>
     </div>
-    <div className={styles.linha}></div>
+    <div className={styles.branco}>
+    <div className={styles.recentPost}>
+      <p className={`${openeSans.className} ${styles.recentString}`}>Recent Posts</p>
+    </div>
     <div className={styles.produtos}>
           <Popular/>
+    </div>
     </div>
     <div className={styles.acre}></div>
     </main>
