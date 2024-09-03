@@ -7,7 +7,7 @@
     justify-content: center;
 }
 .section{
-    width: 24.2%;
+    width: 100%;
     height: 100%;
 }
 .imgFull{
@@ -15,8 +15,9 @@
     height: 100%;
     background-size: cover;
     object-fit: cover;
-    filter: brightness(0.3) ;
+    filter: brightness(0.3);
 }
+
 .greenCheck{
     display: flex;
     align-items: center;
@@ -27,5 +28,9 @@
 }
 .vantagensText{
     position: relative;
-    bottom: 47%
+    bottom: 47%;
+}
+.prime{
+    width: 25%;
+    height: 360px;
 }
