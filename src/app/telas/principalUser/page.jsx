@@ -6,6 +6,8 @@ import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import Popular from '../../../componentes/popularProdutos';
 import Drawer from '../../../componentes/Drawers/DrawerUser/drawer'
+import Hover from '../../../componentes/imgHover/hoverComponent'
+
 export default function Main() {
   return (
     <main className={styles.container}> 
@@ -49,14 +51,17 @@ export default function Main() {
         </Splide>
     </div>
     <div className={styles.branco}>
-    <div className={styles.recentPost}>
-      <p className={`${openeSans.className} ${styles.recentString}`}>Recent Posts</p>
+      <div className={styles.recentPost}>
+        <p className={`${openeSans.className} ${styles.recentString}`}>Recent Posts</p>
+      </div>
+      <div className={styles.produtos}>
+            <Popular/>
+      </div>
     </div>
-    <div className={styles.produtos}>
-          <Popular/>
+    <div>
+            <Hover image1="/ba.webp" image2="/bull.jpg" image3="/corre.jpg" image4="/valha.webp"  />
     </div>
-    </div>
-    <div className={styles.acre}></div>
+        
     </main>
   );
 }
