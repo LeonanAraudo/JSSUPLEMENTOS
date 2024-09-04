@@ -7,6 +7,7 @@
     justify-content: center;
 }
 .section{
+    background-color: black;
     width: 100%;
     height: 100%;
 }
@@ -15,7 +16,7 @@
     height: 100%;
     background-size: cover;
     object-fit: cover;
-    filter: brightness(0.3);
+    filter: brightness(0.6) ;
 }
 
 .greenCheck{
@@ -23,14 +24,24 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
-    color: #d3d3d3;
+    color: #ffffff;
     margin: 16px 40px 0 0;
 }
 .vantagensText{
     position: relative;
     bottom: 47%;
+    text-shadow: 5px 3px 4px black;
 }
 .prime{
-    width: 25%;
+    width: 24.2%;
     height: 360px;
+
+}
+/* /////////////////////////////////////////////////////////////////////////// */
+
+.imgOut{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    object-fit: cover;
 }
