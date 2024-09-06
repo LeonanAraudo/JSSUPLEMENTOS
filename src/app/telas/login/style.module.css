@@ -73,17 +73,27 @@
 .botao{
     width: 200px;
     height: 40px;
-    background-color: #FF4D00;
+    /* background-color: #FF4D00;
     border-radius: 10px;  
     border: none;
     color: #ffffff;
     font-size: 17px;
-    margin-top: 60px;
-    cursor: pointer;
+    cursor: pointer; */
 }
-.botao:hover{
+/* .botao:hover{
     background-color: #ff601d;
+} */
+.afasta{
+    margin-top: 50px;
 }
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+  }
 .notCount{
     display: flex;
     flex-direction: row;
