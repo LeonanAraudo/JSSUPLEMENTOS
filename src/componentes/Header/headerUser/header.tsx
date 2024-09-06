@@ -3,7 +3,7 @@ import styles from '../../../styleComponents/header.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping,faAnglesDown} from '@fortawesome/free-solid-svg-icons'; 
 import { faUser} from '@fortawesome/free-regular-svg-icons'; 
-import {openSans} from '../../../app/fonts';
+import {openSans, openeSans} from '../../../app/fonts';
 
 import Link from "next/link";
 export default function Header () {
@@ -25,11 +25,14 @@ export default function Header () {
             </div>
             <nav className={styles.estencao}>
                 <ul className={styles.opcoes}>
+                    <li className={openSans.className}><a className={styles.opt}>Home</a></li>
+                    <li className={openSans.className}><a className={styles.opt}>Categorias</a></li>
+                    <li className={openSans.className}><a className={styles.opt}>Contatos</a></li>
                     <li className={styles.alinhaIconText}>
                         <div className={styles.icon}>
                             <FontAwesomeIcon
                                 icon={faUser}
-                                style={{ color: "#ff8b00", width: 45,height: 21 }}
+                                style={{ color: "#FF4D00", width: 45,height: 21 }}
                                 aria-label="User"
                             />
                         </div>
@@ -38,29 +41,12 @@ export default function Header () {
                             <a className={`${openSans.className} ${styles.cadastre}`} href="/telas/cadastro">Cadastre-se</a>
                         </div>
                     </li>
-                    <li className={styles.alinhaTexts}>
-                       <div className={styles.icon}>
-                            <p  className={`${openSans.className} ${styles.noTem}`}>Fale conosco</p>
-                       </div>
-                        <div className={styles.alinha2}>
-                            <div>
-                                <a className={`${openSans.className} ${styles.cadastre}`} href="#">Contatos</a>
-                            </div>
-                            <div>
-                                <FontAwesomeIcon
-                                        icon={faAnglesDown}
-                                        style={{ color: "#ff8b00", width: 18,height: 13, cursor: 'pointer',marginTop:5 }}
-                                        aria-label="Carrinho de compras"
-                                    />
-                            </div>
-                        </div>
-                    </li>
                     <li>
-                        <FontAwesomeIcon
+                        {/* <FontAwesomeIcon
                             icon={faCartShopping}
                             style={{ color: "#ff8b00", width: 25,height:21, cursor: 'pointer', }}
                             aria-label="Carrinho de compras"
-                        />
+                        /> */}
                     </li>
                 </ul>
             </nav>

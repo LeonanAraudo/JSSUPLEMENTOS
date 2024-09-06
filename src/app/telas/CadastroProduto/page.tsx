@@ -3,10 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-regular-svg-icons'; 
 import Header from "@/componentes/Header/headerAdm/headerAdm";
 import styles from "./cadProd.module.css";
-import { montserrat } from '../../fonts';
+import { montserrat, openSans } from '../../fonts';
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
+import Image from 'next/image';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import Input from '@mui/material/Input';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 interface FormData {
     Nome: string;
@@ -109,7 +119,7 @@ export default function CadastroProd() {
                             type="file"
                             required
                             className={styles.inputImag}
-                            onChange={handleFileChange} // Remova o value aqui
+                            onChange={handleFileChange}
                         />
                         <div onClick={handleDivClick} style={{
                             backgroundImage: imageSrc ? `url(${imageSrc})` : 'none',
@@ -132,7 +142,7 @@ export default function CadastroProd() {
                     <div className={styles.segunMetade}>
                         <div className={`${styles.NomeProduto} ${styles.padrao}`}>
                             <label htmlFor='NomeProd' className={styles.labelPadrao}>Nome</label>
-                            <input 
+                            {/* <input 
                                 type='text'
                                 name='Nome'
                                 id='NomeProd'
@@ -141,7 +151,20 @@ export default function CadastroProd() {
                                 value={formData.Nome}
                                 onChange={handleChange}
                                 required
-                            />
+                            /> */}
+                            <FormControl sx={{ m: 1, width: '30ch' }} variant="standard">
+                                <TextField
+                                className={openSans.className}
+                                id="NomeProd"
+                                name="Nome"
+                                label="Nome do produto"
+                                variant="standard"
+                                value={formData.Nome}
+                                onChange={handleChange}
+                                required
+
+                                />
+                            </FormControl>
                         </div>
                         <div className={`${styles.DescicaoProduto} ${styles.padrao}`}>
                             <label htmlFor='Descricao' className={styles.labelPadrao}>Descrição</label>

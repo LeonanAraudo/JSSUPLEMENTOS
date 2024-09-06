@@ -2,7 +2,7 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons';
 import { openeSans } from '../../app/fonts';
-import styles from './style.module.css';
+import styles from '../../styleComponents/style.module.css'
 import { useState } from "react";
 import Link from "next/link";
 

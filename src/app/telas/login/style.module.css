@@ -26,22 +26,35 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 40px;
+}
+.inputArea{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     gap: 30px;
-    margin-top: 20px;
 }
 .labelInput{
     width: 65%;
     height: 100%;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
+}
+.coisa{
+    width: 90%;
 }
 .label{
     font-size: 17px;
     font-weight: bold;
     margin: 6px;
-}
+    text-align: end;
+} 
 .input{
-    width: 100%;
+    width: 90%;
     height: 32px;
     background-color: #f1f1f1;
     border: none;
@@ -54,11 +67,11 @@
     width: 200px;
     height: 40px;
     background-color: #FF4D00;
-    border-radius: 10px;
+    border-radius: 10px;  
     border: none;
     color: #ffffff;
     font-size: 17px;
-    margin-top: 10px;
+    margin-top: 60px;
     cursor: pointer;
 }
 .botao:hover{

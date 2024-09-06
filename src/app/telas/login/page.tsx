@@ -46,8 +46,11 @@ export default function Login() {
                 />
             </div>
             <form onSubmit={handleSubmit} className={styles.forme}>
-                <div className={styles.labelInput}>
+              <div className={styles.inputArea}>             
+              <div className={styles.labelInput}>
+                <div className={styles.coisa}>
                     <label htmlFor='nomeUser' className={styles.label}>Nome</label>
+                  </div>
                     <input
                       id='nomeUser'
                       className={styles.input}
@@ -58,7 +61,9 @@ export default function Login() {
                     />
                 </div>
                 <div className={styles.labelInput}>
+                  <div className={styles.coisa}>
                     <label htmlFor='senhaUser' className={styles.label}>Senha</label>
+                  </div>
                     <input
                       id='senhaUser'
                       className={styles.input}
@@ -68,6 +73,7 @@ export default function Login() {
                       value={Senha}
                     />
                 </div>
+              </div>
                 <div>
                     <button type='submit' className={styles.botao}>Entrar</button>
                 </div>

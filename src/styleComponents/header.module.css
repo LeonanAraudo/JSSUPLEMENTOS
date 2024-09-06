@@ -1,14 +1,24 @@
- 
 .heade {
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     width: 100vw;
     height: 60px;
     display: flex;
     align-items: center;
 }
-
-.inpu {
-    width: 330px;
+.opt{
+    color: #e2d9d9;
+    font-size: 15px;
+    cursor: pointer;
+}
+.opt:hover{
+    color: #ffa93f;
+    transition: 0.3s;
+}
+.logo{
+    margin-left: 20px;
+}
+.inpu{
+    width: 340px;
     height: 28px;
     border-radius: 5px;
     border: none;
@@ -28,24 +38,25 @@
     width: 50%;
 }
 .opcoes{
-    width: 100%;
+    width: 96%;
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: space-around;
     list-style-type: none;
+    margin-left: 10px;
 }
 .linke{
     cursor:auto;
 }
 .noTem{
-    color:#FF4D00 ;
+    color:#e2d9d9 ;
     height: 3px;
     font-size: 14px;
     font-family: 'Montserrat';
 }
 .cadastre{
-    color: #FF8B00;
+    color: #FF4D00;
     cursor: pointer;
     font-size: 14px;
     text-decoration: none;

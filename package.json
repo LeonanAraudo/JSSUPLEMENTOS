@@ -10,11 +10,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@mui/material": "^6.0.2",
     "@next/font": "^14.2.5",
     "@splidejs/react-splide": "^0.7.12",
     "axios": "^1.7.3",
@@ -27,7 +30,10 @@
     "react": "^18",
     "react-dom": "^18",
     "sequelize": "^6.37.3",
-    "streamifier": "^0.1.1"
+    "streamifier": "^0.1.1",
+    "@mui/icons-material": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest"
   },
   "devDependencies": {
     "@types/node": "^20",

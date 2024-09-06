@@ -14,25 +14,6 @@ export default function Main() {
     <header className={styles.heder}>
        <Header/>
     </header>
-    <nav className={styles.opcoes}>
-      <ul className={`${openSans.className}  ${styles.alinhas}`}>
-        <li>
-          <Drawer/>
-        </li>
-        <li>
-          <a className={styles.pointer}>Whey</a>
-        </li>
-        <li>
-          <a className={styles.pointer}>Creatina</a>
-        </li>
-        <li>
-          <a className={styles.pointer}>Pré-treino</a>
-        </li>
-        <li>
-          <a className={styles.pointer2}>Promoções</a>
-        </li>
-      </ul>
-    </nav>
     <div className={styles.slide}>
           <Splide 
             className={styles.ca} 
