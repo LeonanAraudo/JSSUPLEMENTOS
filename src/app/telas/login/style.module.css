@@ -26,7 +26,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 /* .inputArea{
     width: 100%;
@@ -84,12 +84,13 @@
     background-color: #ff601d;
 } */
 .afasta{
-    margin-top: 50px;
+    margin-top: 70px;
 }
 .loading {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
@@ -103,6 +104,10 @@
     color: #FF4D00;
     font-weight: bold;
 }
+.colore:hover{
+    color: #ff9567;
+}
 .link{
+    height: 10px;
     text-decoration: none;
 }

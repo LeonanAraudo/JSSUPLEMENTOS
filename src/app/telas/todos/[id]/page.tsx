@@ -7,14 +7,15 @@ import { openSans,openeSans} from '@/app/fonts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown,faCartShopping } from '@fortawesome/free-solid-svg-icons'; 
 import 'ldrs/ring'
-import { tailChase } from 'ldrs'
+import { bouncy } from 'ldrs'
 
 interface PageProps {
   params: {
     id: string; 
   };
 }
-tailChase.register()
+
+bouncy.register()
 
 interface Produto {
   Nome: string;
@@ -57,11 +58,12 @@ const Page: FC<PageProps> = ({ params }) => {
   
  
   if (loading) {
-    return <div className={styles.loading}><l-tail-chase
-    size="40"
-    speed="1.75" 
-    color="black" 
-  ></l-tail-chase>
+    return <div className={styles.loading}>
+<l-bouncy
+  size="45"
+  speed="1.75" 
+  color="black" 
+></l-bouncy>
   <p className={`${openeSans.className} ${styles.carrega}`}>Carregando informações</p>
   </div>;
   }

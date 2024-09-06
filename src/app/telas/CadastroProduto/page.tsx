@@ -10,13 +10,9 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
+
 import TextField from '@mui/material/TextField';
-import IconButton from '@mui/material/IconButton';
-import Input from '@mui/material/Input';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+
 
 interface FormData {
     Nome: string;
@@ -48,8 +44,8 @@ export default function CadastroProd() {
     const [imageSrc, setImageSrc] = useState<string | null>(null);
 
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
+        const { name, value } = e.target; //desestrutura name e value
+        setFormData(prev => ({ ...prev, [name]: value })); // O campo name e atualizado com o novo value
     };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -85,7 +81,6 @@ export default function CadastroProd() {
         }
     };
     
-
     const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
         if (file) {

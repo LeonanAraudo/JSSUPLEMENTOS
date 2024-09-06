@@ -2,7 +2,7 @@
 import { useState, FormEvent, useEffect } from 'react';
 import styles from './style.module.css';
 import Image from 'next/image';
-import { montserrat } from '../../fonts';
+import { montserrat,openeSans } from '../../fonts';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import Box from '@mui/material/Box';
@@ -13,6 +13,29 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Button from '@mui/material/Button';
 import Link from 'next/link';
+import { bouncy } from 'ldrs'
+import { createTheme } from '@mui/material';
+import { ThemeProvider } from '@emotion/react';
+
+bouncy.register()
+
+const theme = createTheme({
+  palette:{
+    primary:{
+      main:"#000000"
+  },
+    warning:{
+      main:"#FF4D00"
+    }
+  },
+  typography: {
+    fontFamily: montserrat.style.fontFamily
+  },
+  shape:{
+    borderRadius:7
+  }
+});
+
 
 export default function Login() {
   const [Nome, setUsername] = useState('');
@@ -25,7 +48,7 @@ export default function Login() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false); 
-    }, 1000);
+    }, 500);
 
     return () => clearTimeout(timer); 
   }, []);
@@ -57,7 +80,12 @@ export default function Login() {
   if (loading) {
     return (
       <div className={styles.loading}>
-        <p>Carregando...</p>
+        <l-bouncy
+          size="45"
+          speed="1.75" 
+          color="black" 
+        ></l-bouncy>
+        
       </div>
     );
   }
@@ -73,17 +101,19 @@ export default function Login() {
             height={163}
           />
         </div>
+        <ThemeProvider theme={theme}>
+
         <form onSubmit={handleSubmit} className={styles.forme}>
           <Box
-            sx={{ '& > :not(style)': { m: 1, width: '29ch'} }}
+            sx={{ '& > :not(style)': { m: 1, width: '29ch'},  }}
             className={styles.box}
           >
               <TextField 
               className={styles.input}
               id="nomeUser" 
               label="Nome" 
-              color='a'
-              variant="outlined" 
+              color='primary'
+              variant="standard" 
               size='small'
               onChange={(e) => setUsername(e.target.value)}
               value={Nome}
@@ -92,9 +122,9 @@ export default function Login() {
               className={styles.input}
               id='senhaUser'
               label="Senha"
-              color='a'
+              color='primary'
               type={showPassword ? 'text' : 'password'}
-              variant="outlined"
+              variant="standard"
               size='small'
               onChange={(e) => setPassword(e.target.value)}
               value={Senha}
@@ -116,15 +146,22 @@ export default function Login() {
             />
           </Box>
           <div className={styles.afasta}>
-          <Button type='submit' variant="contained" color="warning" className={styles.botao}>Entrar</Button>
+          <Button 
+          type='submit' 
+          variant="contained" 
+          color="warning"  
+          className={styles.botao}
+          sx={{ textTransform: 'none', fontSize:'17px' }}
+          >Entrar</Button>
           </div>
           <div className={styles.notCount}>
             <p style={{fontWeight:'bold'}}>Não tem conta?</p>
               <Link className={styles.link} href="/telas/cadastro">
                   <p className={styles.colore}>Cadastre-se</p>
-                </Link>
+              </Link>
           </div>
         </form>
+        </ThemeProvider>
       </div>
     </div>
   );
