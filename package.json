@@ -33,7 +33,8 @@
     "streamifier": "^0.1.1",
     "@mui/icons-material": "latest",
     "@types/react": "latest",
-    "@types/react-dom": "latest"
+    "@types/react-dom": "latest",
+    "@mui/lab": "6.0.0-beta.9"
   },
   "devDependencies": {
     "@types/node": "^20",

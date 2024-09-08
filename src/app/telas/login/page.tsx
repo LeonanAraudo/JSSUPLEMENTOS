@@ -12,6 +12,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Button from '@mui/material/Button';
+import LoadingButton from '@mui/lab/LoadingButton';
 import Link from 'next/link';
 import { bouncy } from 'ldrs'
 import { createTheme } from '@mui/material';
@@ -34,13 +35,15 @@ const theme = createTheme({
   shape:{
     borderRadius:7
   }
+  
 });
 
 
 export default function Login() {
   const [Nome, setUsername] = useState('');
   const [Senha, setPassword] = useState('');
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
+  const [loadingButon, setLoadingButon] = useState(false);  
   const [showPassword, setShowPassword] = useState(false);
   const router = useRouter();
 
@@ -56,9 +59,13 @@ export default function Login() {
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
     };
-
+  
+    function clicaAi(){
+      setLoadingButon(true)
+    }
    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setLoadingButon(true);
     try {
       const response = await axios.post('/api/login/login', {
         Nome,
@@ -74,9 +81,10 @@ export default function Login() {
       } else {
         alert('Ocorreu um erro');
       }
+    }finally {
+      setLoadingButon(false); 
     }
   };
-
   if (loading) {
     return (
       <div className={styles.loading}>
@@ -146,14 +154,37 @@ export default function Login() {
             />
           </Box>
           <div className={styles.afasta}>
-          <Button 
+   
+         { loadingButon ? (
+          <LoadingButton
           type='submit' 
-          variant="contained" 
-          color="warning"  
+          size="small" //true
+          loading={loadingButon}
+          variant="outlined"
+          name="loading"
+          sx={{
+            backgroundColor: '#FF4D00', 
+            '& .MuiCircularProgress-root': {
+              color: 'white', // Muda a cor do spinner para branco
+              width: '24px', // Ajuste o tamanho do spinner
+              height: '24px', // Ajuste o tamanho do spinner
+            },
+          }}
           className={styles.botao}
-          sx={{ textTransform: 'none', fontSize:'17px' }}
-          >Entrar</Button>
+        > </LoadingButton>) : (
+            <Button //false
+            type='submit' 
+            variant="contained" 
+            color="warning"  
+            className={styles.botao}
+            sx={{ textTransform: 'none', fontSize:'17px' }}
+            >Entrar
+            </Button>
+          )        
+          }
+          
           </div>
+
           <div className={styles.notCount}>
             <p style={{fontWeight:'bold'}}>Não tem conta?</p>
               <Link className={styles.link} href="/telas/cadastro">

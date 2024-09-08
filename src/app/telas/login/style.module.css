@@ -26,7 +26,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 /* .inputArea{
     width: 100%;
@@ -73,6 +73,7 @@
 .botao{
     width: 200px;
     height: 40px;
+    color: #ffffff;
     /* background-color: #FF4D00;
     border-radius: 10px;  
     border: none;

@@ -1,9 +1,9 @@
-import Main from "./telas/principalUser/page";
+import Login from "./telas/login/page";
 export default function Home() {
   return (
     <>
       <div>
-        <Main/>
+        <Login/>
       </div>
     </>
   );
