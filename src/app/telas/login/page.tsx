@@ -17,6 +17,8 @@ import Link from 'next/link';
 import { bouncy } from 'ldrs'
 import { createTheme } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
+import SaveIcon from '@mui/icons-material/Save';
+import SendIcon from '@mui/icons-material/Send';
 
 bouncy.register()
 

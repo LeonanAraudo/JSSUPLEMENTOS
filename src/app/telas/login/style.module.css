@@ -7,7 +7,7 @@
 }
 .container{
     width:40%;
-    height:70%;
+    height:69%;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
@@ -26,7 +26,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 /* .inputArea{
     width: 100%;
@@ -85,7 +85,7 @@
     background-color: #ff601d;
 } */
 .afasta{
-    margin-top: 70px;
+    margin-top: 90px;
 }
 .loading {
     display: flex;
@@ -100,6 +100,7 @@
     display: flex;
     flex-direction: row;
     gap: 5px;
+    margin-top: 10px;
 }
 .colore{
     color: #FF4D00;
