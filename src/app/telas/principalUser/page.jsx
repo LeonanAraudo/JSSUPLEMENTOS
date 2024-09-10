@@ -7,7 +7,7 @@ import '@splidejs/react-splide/css';
 import Popular from '../../../componentes/popularProdutos';
 import Drawer from '../../../componentes/Drawers/DrawerUser/drawer'
 import Hover from '../../../componentes/imgHover/hoverComponent'
-
+import Image from 'next/image';
 export default function Main() {
   return (
     <main className={styles.container}> 
@@ -41,6 +41,15 @@ export default function Main() {
     </div>
     <div>
             <Hover image1="/ba.webp" image2="/bull.jpg" image3="/corre.jpg" image4="/valha.webp"  />
+    </div>
+    <div className={styles.story}>
+      <div>
+        <Image></Image>
+      </div>
+      <div>
+        <h2></h2>
+        <p></p>
+      </div>
     </div>
         
     </main>
