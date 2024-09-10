@@ -1,37 +1,19 @@
 "use client"
-import HeaderAdm from '../../../componentes/Header/headerAdm/headerAdm'
+import Header from '../../../componentes/Header/headerAdm/headerAdm'
 import styles from './adm.module.css'
-import {openSans} from '../../fonts';
+import {openSans,openeSans} from '../../fonts';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import Popular from '@/componentes/popularProdutos';
-import Drawer from '../../../componentes/Drawers/DrawerAdm/drawer'
-
-export default function MainAdm() {
+import Popular from '../../../componentes/popularProdutos';
+import Drawer from '../../../componentes/Drawers/DrawerUser/drawer'
+import Hover from '../../../componentes/imgHover/hoverComponent'
+import Image from 'next/image';
+export default function Main() {
   return (
     <main className={styles.container}> 
     <header className={styles.heder}>
-       <HeaderAdm/>
+       <Header/>
     </header>
-    <nav className={styles.opcoes}>
-      <ul className={`${openSans.className}  ${styles.alinhas}`}>
-        <li>
-          <Drawer/>
-        </li>
-        <li>
-          <a className={styles.pointer}>Whey</a>
-        </li>
-        <li>
-          <a className={styles.pointer}>Creatina</a>
-        </li>
-        <li>
-          <a className={styles.pointer}>Pré-treino</a>
-        </li>
-        <li>
-          <a className={styles.pointer2}>Promoções</a>
-        </li>
-      </ul>
-    </nav>
     <div className={styles.slide}>
           <Splide 
             className={styles.ca} 
@@ -49,11 +31,27 @@ export default function MainAdm() {
               </SplideSlide>
         </Splide>
     </div>
-    <div className={styles.linha}></div>
-    <div className={styles.produtos}>
-          <Popular/>
+    <div className={styles.branco}>
+      <div className={styles.recentPost}>
+        <p className={`${openeSans.className} ${styles.recentString}`}>Recent Posts</p>
+      </div>
+      <div className={styles.produtos}>
+            <Popular/>
+      </div>
     </div>
-    <div className={styles.acre}></div>
+    <div>
+            <Hover image1="/ba.webp" image2="/bull.jpg" image3="/corre.jpg" image4="/valha.webp"  />
+    </div>
+    <div className={styles.story}>
+      <div>
+        <Image></Image>
+      </div>
+      <div>
+        <h2></h2>
+        <p></p>
+      </div>
+    </div>
+        
     </main>
   );
 }
