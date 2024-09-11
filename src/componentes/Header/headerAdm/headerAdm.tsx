@@ -25,7 +25,7 @@ export default function Header () {
             </div>
             <nav className={styles.estencao}>
                 <ul className={styles.opcoes}>
-                    <li className={openSans.className}><a className={styles.opt}>Home</a></li>
+                    <li className={openSans.className}><a className={styles.opt} href="/telas/principalAdm">Home</a></li>
                     <li className={openSans.className}><a className={styles.opt}>Categorias</a></li>
                     <li className={openSans.className}><a className={styles.opt}>Contatos</a></li>
                     <li className={styles.alinhaIconText}>

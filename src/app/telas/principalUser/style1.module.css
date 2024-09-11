@@ -81,3 +81,31 @@
 .branco{
     margin-top: 40px;
 }
+.story{
+    height: 320px;
+    background-color: black;
+    color: #ffffff;
+    display:inline-flex;
+}
+.storyImage{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.storyText{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.aling{
+    width: 85%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}

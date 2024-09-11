@@ -7,7 +7,7 @@
 }
 .container{
     width:40%;
-    height:69%;
+    height:70%;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
@@ -26,7 +26,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 /* .inputArea{
     width: 100%;
@@ -85,7 +85,7 @@
     background-color: #ff601d;
 } */
 .afasta{
-    margin-top: 90px;
+    margin-top: 60px;
 }
 .loading {
     display: flex;
