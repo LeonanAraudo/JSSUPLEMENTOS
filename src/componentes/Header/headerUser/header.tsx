@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping,faAnglesDown} from '@fortawesome/free-solid-svg-icons'; 
 import { faUser} from '@fortawesome/free-regular-svg-icons'; 
 import {openSans, openeSans} from '../../../app/fonts';
-
+import DropdownMenuDemo from "../Contatos/contatos";
 import Link from "next/link";
 export default function Header () {
     return (
@@ -27,7 +27,7 @@ export default function Header () {
                 <ul className={styles.opcoes}>
                     <li className={openSans.className}><a className={styles.opt}>Home</a></li>
                     <li className={openSans.className}><a className={styles.opt}>Categorias</a></li>
-                    <li className={openSans.className}><a className={styles.opt}>Contatos</a></li>
+                    <li className={openSans.className}><a className={styles.opt}><DropdownMenuDemo/></a></li>
                     <li className={styles.alinhaIconText}>
                         <div className={styles.icon}>
                             <FontAwesomeIcon

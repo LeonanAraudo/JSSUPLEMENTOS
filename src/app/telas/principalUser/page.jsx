@@ -57,7 +57,9 @@ export default function Main() {
             </div>
       </div>
     </div>
-        
+        <footer>
+          
+        </footer>
     </main>
   );
 }
