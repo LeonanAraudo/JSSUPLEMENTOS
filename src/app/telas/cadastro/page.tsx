@@ -1,4 +1,5 @@
-"use client"
+"use client";
+import * as React from 'react';
 import styles from './style.module.css';
 import Image from 'next/image';
 import { montserrat } from '../../fonts';
@@ -13,29 +14,54 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import Button from '@mui/material/Button';
 import LoadingButton from '@mui/lab/LoadingButton';
-import Link from 'next/link';
-import { bouncy } from 'ldrs'
 import { createTheme } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
+import { IMaskInput } from 'react-imask';
 
 const theme = createTheme({
-  palette:{
-    primary:{
-      main:"#000000"
-  },
-    warning:{
-      main:"#FF4D00"
-    }
+  palette: {
+    primary: {
+      main: "#000000",
+    },
+    warning: {
+      main: "#FF4D00",
+    },
   },
   typography: {
-    fontFamily: montserrat.style.fontFamily
+    fontFamily: montserrat.style.fontFamily,
   },
-  shape:{
-    borderRadius:7
-  }
-  
+  shape: {
+    borderRadius: 7,
+  },
 });
 
+interface CustomProps {
+  inputRef: (ref: HTMLInputElement | null) => void;
+  onChange: (event: { target: { name: string; value: string } }) => void;
+  name: string;
+}
+
+const TextMaskCustom = React.forwardRef<HTMLElement, CustomProps>(
+  function TextMaskCustom(props, ref) {
+    const { inputRef, onChange, ...other } = props;
+    return (
+      <IMaskInput
+        {...other}
+        mask="(00) 00000-0000" 
+        definitions={{
+          '0': /[0-9]/,
+        }}
+        inputRef={inputRef}
+        onAccept={(value: any) =>
+          onChange({ target: { name: props.name, value } })
+        }
+        overwrite
+      />
+    );
+  }
+);
+
+// Interface para o estado do formulário
 interface FormData {
   Nome: string;
   Senha: string;
@@ -91,7 +117,6 @@ export default function Cadastrar() {
 
   return (
     <div>
-
       <div className={styles.logo}>
         <Image
           src="/suples.png"
@@ -103,123 +128,137 @@ export default function Cadastrar() {
       <div className={`${montserrat.className} ${styles.centralizador}`}>
         <div className={styles.container}>
           <div className={styles.cadastro}>
-            <p style={{fontWeight:"bold",fontSize:"20px"}}>Cadastro</p>
+            <p style={{ fontWeight: "bold", fontSize: "20px" }}>Cadastro</p>
           </div>
           <ThemeProvider theme={theme}>
-          <form onSubmit={handleSubmit} className={styles.forme}>
-          <Box
-            sx={{ '& > :not(style)': { m: 1, width: '29ch'},  }}
-            className={styles.box}
-          >
-            <TextField 
-            className={styles.colors}
-              id="nomeUser" 
-              name='Nome'
-              label="Nome" 
-              color='primary'
-              variant="standard" 
-              size='small'
-              onChange={handleChange}
-              value={formData.Nome}
-              required
-            />
-            <TextField 
-              id="telefoneUser"
-              name='Telefone' 
-              label="Telefone" 
-              color='primary'
-              variant="standard" 
-              size='small'
-              value={formData.Telefone}
-              onChange={handleChange}
-              required
-            />
-            <TextField
-              id='senhaUser'
-              name='Senha' 
-              label="Senha"
-              color='primary'
-              type={showPassword ? 'text' : 'password'}
-              variant="standard"
-              size='small'
-              value={formData.Senha}
-              onChange={handleChange}
-              required
-              slotProps={{
-                input: {
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPasswords}
-                        edge="end"
-                      >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                },
-              }}
-              
-            />
-            <TextField
-              id='confirmarSenha'
-              name='ConfirmarSenha'
-              label="Confirmar Senha"
-              color='primary'
-              type={showPassworde ? 'text' : 'password'}
-              variant="standard"
-              size='small'
-              value={confirmarSenha}
-              onChange={handleConfirmarSenhaChange}
-              required
-              slotProps={{
-                input: {
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        edge="end"
-                      >
-                        {showPassworde ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  ),
-                },
-              }}
-            />
-            <div className={styles.alingButton}>
-            { loadingButon ? (
-          <LoadingButton
-          type='submit' 
-          size="small" //true
-          loading={loadingButon}
-          variant="outlined"
-          name="loading"
-          sx={{
-            backgroundColor: '#FF4D00', 
-            '& .MuiCircularProgress-root': {
-              color: 'white', 
-              width: '24px',
-              height: '24px', 
-            },
-          }}
-          className={styles.botao}
-        > </LoadingButton>) : (
-            <Button //false
-            type='submit' 
-            variant="contained" 
-            color="warning"  
-            className={styles.botao}
-            sx={{ textTransform: 'none', fontSize:'17px' }}
-            >Cadastrar
-            </Button>
-          )        
-          }
-            </div>
-          </Box>
-          </form>
+            <form onSubmit={handleSubmit} className={styles.forme}>
+              <Box
+                sx={{ '& > :not(style)': { m: 1, width: '29ch' }, }}
+                className={styles.box}
+              >
+                {/* Campo Nome */}
+                <TextField
+                  className={styles.colors}
+                  id="nomeUser"
+                  name="Nome"
+                  label="Nome"
+                  color="primary"
+                  variant="standard"
+                  size="small"
+                  onChange={handleChange}
+                  value={formData.Nome}
+                  required
+                />
+
+                {/* Campo Telefone com Máscara */}
+                <TextField
+                  id="telefoneUser"
+                  name="Telefone"
+                  label="Telefone"
+                  color="primary"
+                  variant="standard"
+                  size="small"
+                  value={formData.Telefone}
+                  onChange={handleChange}
+                  required
+                  slotProps={{
+                    input: {
+                      inputComponent: TextMaskCustom as any, // Integra o componente de máscara
+                    },
+                  }}
+                />
+
+                {/* Campo Senha */}
+                <TextField
+                  id="senhaUser"
+                  name="Senha"
+                  label="Senha"
+                  color="primary"
+                  type={showPassword ? 'text' : 'password'}
+                  variant="standard"
+                  size="small"
+                  value={formData.Senha}
+                  onChange={handleChange}
+                  required
+                  slotProps={{
+                    input: {
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowPasswords}
+                            edge="end"
+                          >
+                            {showPassword ? <VisibilityOff /> : <Visibility />}
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    },
+                  }}
+                />
+
+                {/* Campo Confirmar Senha */}
+                <TextField
+                  id="confirmarSenha"
+                  name="ConfirmarSenha"
+                  label="Confirmar Senha"
+                  color="primary"
+                  type={showPassworde ? 'text' : 'password'}
+                  variant="standard"
+                  size="small"
+                  value={confirmarSenha}
+                  onChange={handleConfirmarSenhaChange}
+                  required
+                  slotProps={{
+                    input: {
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowPassword}
+                            edge="end"
+                          >
+                            {showPassworde ? <VisibilityOff /> : <Visibility />}
+                          </IconButton>
+                        </InputAdornment>
+                      ),
+                    },
+                  }}
+                />
+
+                {/* Botão de Cadastro */}
+                <div className={styles.alingButton}>
+                  {loadingButon ? (
+                    <LoadingButton
+                      type="submit"
+                      size="small"
+                      loading={loadingButon}
+                      variant="outlined"
+                      name="loading"
+                      sx={{
+                        backgroundColor: '#FF4D00',
+                        '& .MuiCircularProgress-root': {
+                          color: 'white',
+                          width: '24px',
+                          height: '24px',
+                        },
+                      }}
+                      className={styles.botao}
+                    />
+                  ) : (
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      color="warning"
+                      className={styles.botao}
+                      sx={{ textTransform: 'none', fontSize: '17px' }}
+                    >
+                      Cadastrar
+                    </Button>
+                  )}
+                </div>
+              </Box>
+            </form>
           </ThemeProvider>
           {message && <p className={message.type}>{message.text}</p>}
         </div>
