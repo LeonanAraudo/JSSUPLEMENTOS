@@ -19,8 +19,7 @@ export default function Hover(props) {
             <div 
                 className={styles.prime}
                 onMouseEnter={() => setIsHovered(true)} 
-                onMouseLeave={() => setIsHovered(false)
-                }
+                onMouseLeave={() => setIsHovered(false)}
             >
                 {isHovered ? (
                     <div className={styles.section}>

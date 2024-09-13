@@ -17,8 +17,6 @@ import Link from 'next/link';
 import { bouncy } from 'ldrs'
 import { createTheme } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
-import SaveIcon from '@mui/icons-material/Save';
-import SendIcon from '@mui/icons-material/Send';
 
 bouncy.register()
 
@@ -62,9 +60,6 @@ export default function Login() {
     setShowPassword(!showPassword);
     };
   
-    function clicaAi(){
-      setLoadingButon(true)
-    }
    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoadingButon(true);
@@ -167,9 +162,9 @@ export default function Login() {
           sx={{
             backgroundColor: '#FF4D00', 
             '& .MuiCircularProgress-root': {
-              color: 'white', // Muda a cor do spinner para branco
-              width: '24px', // Ajuste o tamanho do spinner
-              height: '24px', // Ajuste o tamanho do spinner
+              color: 'white', 
+              width: '24px',
+              height: '24px', 
             },
           }}
           className={styles.botao}

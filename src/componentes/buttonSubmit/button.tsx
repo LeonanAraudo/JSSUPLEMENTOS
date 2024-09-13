@@ -28,7 +28,7 @@ export default function Butao(){
         }
         label="Loading"
       />
-      <Box sx={{ '& > button': { m: 1 } }}>
+      <Box sx={{ '& > button': { m: 1 }}}>
         <LoadingButton
           size="small"
           onClick={handleClick}
