@@ -17,7 +17,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import { createTheme } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
 import { IMaskInput } from 'react-imask';
-
+import Alert from '@mui/material/Alert';
 const theme = createTheme({
   palette: {
     primary: {
@@ -47,7 +47,7 @@ const TextMaskCustom = React.forwardRef<HTMLElement, CustomProps>(
     return (
       <IMaskInput
         {...other}
-        mask="(00) 00000-0000" 
+        mask="(+00) 00 00000-0000" 
         definitions={{
           '0': /[0-9]/,
         }}
@@ -61,17 +61,20 @@ const TextMaskCustom = React.forwardRef<HTMLElement, CustomProps>(
   }
 );
 
-// Interface para o estado do formulário
 interface FormData {
   Nome: string;
   Senha: string;
   Telefone: string;
 }
-
+interface Mensage{
+  type: "error" | "sucess";
+  action: JSX.Element
+}
 export default function Cadastrar() {
   const [showPassword, setShowPassword] = useState(false);
   const [showPassworde, setShowPassworde] = useState(false);
-  const [loadingButon, setLoadingButon] = useState(false);  
+  const [loadingButon, setLoadingButon] = useState(false); 
+  const [messagem, setMessagem] = useState<Mensage | null>(null); 
   const [formData, setFormData] = useState<FormData>({
     Nome: '',
     Senha: '',
@@ -101,7 +104,11 @@ export default function Cadastrar() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (formData.Senha !== confirmarSenha) {
-      setMessage({ type: 'error', text: 'As senhas não coincidem!' });
+      setMessagem({ type:"error" , action: (<div><Alert severity="error">This is an error Alert.</Alert></div>)});
+      return;
+    }
+    if(formData.Telefone.length < 19){
+      setMessage({type:"error",text:'Escreva o telefone no formato (+00) 00 00000-0000'});
       return;
     }
     try {
@@ -136,7 +143,6 @@ export default function Cadastrar() {
                 sx={{ '& > :not(style)': { m: 1, width: '29ch' }, }}
                 className={styles.box}
               >
-                {/* Campo Nome */}
                 <TextField
                   className={styles.colors}
                   id="nomeUser"
@@ -149,8 +155,6 @@ export default function Cadastrar() {
                   value={formData.Nome}
                   required
                 />
-
-                {/* Campo Telefone com Máscara */}
                 <TextField
                   id="telefoneUser"
                   name="Telefone"
@@ -163,12 +167,10 @@ export default function Cadastrar() {
                   required
                   slotProps={{
                     input: {
-                      inputComponent: TextMaskCustom as any, // Integra o componente de máscara
+                      inputComponent: TextMaskCustom as any, 
                     },
                   }}
                 />
-
-                {/* Campo Senha */}
                 <TextField
                   id="senhaUser"
                   name="Senha"
@@ -196,8 +198,6 @@ export default function Cadastrar() {
                     },
                   }}
                 />
-
-                {/* Campo Confirmar Senha */}
                 <TextField
                   id="confirmarSenha"
                   name="ConfirmarSenha"
@@ -225,8 +225,6 @@ export default function Cadastrar() {
                     },
                   }}
                 />
-
-                {/* Botão de Cadastro */}
                 <div className={styles.alingButton}>
                   {loadingButon ? (
                     <LoadingButton
@@ -260,6 +258,7 @@ export default function Cadastrar() {
               </Box>
             </form>
           </ThemeProvider>
+          {messagem && messagem.action}
           {message && <p className={message.type}>{message.text}</p>}
         </div>
       </div>
