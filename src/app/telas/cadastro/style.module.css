@@ -43,6 +43,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     padding-top: 30px;
 }
 .labelInput{
@@ -74,10 +75,20 @@
     border: none;
     color: #ffffff;
     font-size: 17px;
-    margin-top: 10px;
     cursor: pointer;
 }
 .botao:hover{
     background-color: #ff601d;
-
+}
+.logar{
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.textLogar{
+    display: inline-flex;
+    gap: 3px;
+}
+.hovered:hover{
+    color: #ff9567;
 }

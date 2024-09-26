@@ -18,6 +18,7 @@ import { createTheme } from '@mui/material';
 import { ThemeProvider } from '@emotion/react';
 import { IMaskInput } from 'react-imask';
 import Alert from '@mui/material/Alert';
+import Link from 'next/link';
 const theme = createTheme({
   palette: {
     primary: {
@@ -254,6 +255,9 @@ export default function Cadastrar() {
                       Cadastrar
                     </Button>
                   )}
+                <div className={styles.logar}>
+                  <p className={styles.textLogar}>Já possui conta?<span style={{color:'#FF4D00'}}><Link className={styles.hovered} href='/telas/login'>Login</Link></span></p>
+                </div>
                 </div>
               </Box>
             </form>
