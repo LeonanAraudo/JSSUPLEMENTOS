@@ -172,7 +172,7 @@ export default function CadastroProd() {
                                     value={formData.Preco}
                                     onChange={handleChange}
                                     startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                                    label="Amount"
+                                    label="Preço de Venda"
                                 />
                                 </FormControl> 
                                 <FormControl fullWidth sx={{ m: 1, width:'166px' }}>
@@ -184,39 +184,24 @@ export default function CadastroProd() {
                                     value={formData.Preco_Antes}
                                     onChange={handleChange}
                                     startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                                    label="Amount"
+                                    label="Preço de Mercado"
                                 />
                                 </FormControl>                                                         
                                 <FormControl fullWidth sx={{ m: 1, width:'167px' }}>
+                                    <InputLabel id="SelectType">Tipo de Produto</InputLabel>
                                     <Select
-                                    labelId="demo-simple-select-label"
+                                    labelId="SelectType"
                                     name="Tipo_produto" 
                                     id="SelectType" 
                                     value={formData.Tipo_produto}
                                     onChange={handleSelectChange}
-                                    label="selecione"
+                                    label='Tipo de Produto'
                                     >
-                                    <MenuItem value={10}>Ten</MenuItem>
-                                    <MenuItem value={20}>Twenty</MenuItem>
-                                    <MenuItem value={30}>Thirty</MenuItem>
+                                    <MenuItem value='Creatina'>Creatina</MenuItem>
+                                    <MenuItem value='Whey'>Whey</MenuItem>
+                                    <MenuItem value='Promoção'>Promoção</MenuItem>
                                     </Select>
                               </FormControl>
-                            {/* <div className={styles.Gap}>
-                                <label htmlFor='SelectType' className={styles.labelPadraoOut}>Tipo de Produto</label>
-                                <select 
-                                    className={styles.optionsTipo} 
-                                    name="Tipo_produto" 
-                                    id="SelectType" 
-                                    required
-                                    value={formData.Tipo_produto}
-                                    onChange={handleChange}
-                                >
-                                    <option value="">Selecione</option>
-                                    <option value="Creatina">Creatina</option>
-                                    <option value="Whey">Whey</option>
-                                    <option value="Promoção">Promoção</option>
-                                </select>
-                            </div>     */}
                         </div>
                         <div className={styles.content}>
                             <div className={styles.a}>
