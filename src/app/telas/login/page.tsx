@@ -82,6 +82,12 @@ export default function Login() {
       setLoadingButon(false); 
     }
   };
+  
+  function carregar(){
+    setLoading(true);
+    router.push('/telas/cadastro');
+  }
+
   if (loading) {
     return (
       <div className={styles.loading}>
@@ -181,14 +187,12 @@ export default function Login() {
           </Button>
           )        
           }
-          
           </div>
-
           <div className={styles.notCount}>
             <p style={{fontWeight:'bold'}}>Não tem conta?</p>
-              <Link className={styles.link} href="/telas/cadastro">
+              <div className={styles.link} onClick={carregar}>
                   <p className={styles.colore}>Cadastre-se</p>
-              </Link>
+              </div>
           </div>
         </form>
         </ThemeProvider>

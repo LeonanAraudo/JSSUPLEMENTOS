@@ -104,6 +104,7 @@
 .colore{
     color: #FF4D00;
     font-weight: bold;
+    cursor: pointer;
 }
 .colore:hover{
     color: #ff9567;

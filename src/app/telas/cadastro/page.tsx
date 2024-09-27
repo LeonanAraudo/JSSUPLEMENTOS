@@ -134,6 +134,10 @@ export default function Cadastrar() {
     return () => clearTimeout(timer); 
   }, []);
 
+  function carregar(){
+    setLoading(true);
+    router.push('/telas/login');
+  }
   if (loading) {
     return (
       <div className={styles.loading}>
@@ -280,7 +284,7 @@ export default function Cadastrar() {
                     </Button>
                   )}
                 <div className={styles.logar}>
-                  <p className={styles.textLogar}>Já possui conta?<span style={{color:'#FF4D00'}}><Link className={styles.hovered} href='/telas/login'>Login</Link></span></p>
+                  <p className={styles.textLogar}>Já possui conta?<span style={{color:'#FF4D00'}}><div className={styles.hovered} onClick={carregar}>Login</div></span></p>
                 </div>
                 </div>
               </Box>

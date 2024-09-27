@@ -89,6 +89,9 @@
     display: inline-flex;
     gap: 3px;
 }
+.hovered{
+    cursor: pointer;
+}
 .hovered:hover{
     color: #ff9567;
 }
