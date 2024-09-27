@@ -10,8 +10,9 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import FormControl from '@mui/material/FormControl';
-
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
+import { InputAdornment, InputLabel, MenuItem, OutlinedInput } from '@mui/material';
 
 
 interface FormData {
@@ -43,9 +44,14 @@ export default function CadastroProd() {
     const router = useRouter();
     const [imageSrc, setImageSrc] = useState<string | null>(null);
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement  >) => {
         const { name, value } = e.target; //desestrutura name e value
         setFormData(prev => ({ ...prev, [name]: value })); // O campo name e atualizado com o novo value
+    };
+
+    const handleSelectChange = (event: SelectChangeEvent<string>) => {
+        const { name, value } = event.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
     };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -135,82 +141,67 @@ export default function CadastroProd() {
                         </label>
                     </div>
                     <div className={styles.segunMetade}>
-                        <div className={`${styles.NomeProduto} ${styles.padrao}`}>
-                            <label htmlFor='NomeProd' className={styles.labelPadrao}>Nome</label>
-                            {/* <input 
-                                type='text'
-                                name='Nome'
-                                id='NomeProd'
-                                className={`${styles.inputNP} ${styles.backgroundInputs}`}
-                                placeholder='Insira o nome do produto'
-                                value={formData.Nome}
-                                onChange={handleChange}
-                                required
-                            /> */}
-                            <FormControl sx={{ m: 1, width: '30ch' }} variant="standard">
-                                <TextField
-                                className={openSans.className}
-                                id="NomeProd"
-                                name="Nome"
-                                label="Nome do produto"
-                                variant="standard"
-                                value={formData.Nome}
-                                onChange={handleChange}
-                                required
-
-                                />
+                            <FormControl sx={{ m: 1, width: '50ch',marginTop:'30px' }} variant="standard">
+                             <TextField 
+                             id="NomeProd"
+                             name="Nome"
+                             label="Nome do produto"
+                             value={formData.Nome}
+                             onChange={handleChange}
+                              variant="outlined" />
                             </FormControl>
-                        </div>
-                        <div className={`${styles.DescicaoProduto} ${styles.padrao}`}>
-                            <label htmlFor='Descricao' className={styles.labelPadrao}>Descrição</label>
-                            <textarea 
+                            <FormControl  sx={{ m: 1, width: '50ch'}} variant="standard">
+                            <TextField
                                 id='Descricao'
                                 name='Descricao' 
-                                placeholder='Descreva o produto'
-                                className={`${styles.inputDesc} ${styles.backgroundInputs} ${montserrat.className}`}
                                 required
                                 value={formData.Descricao}
                                 onChange={handleChange}
-                            ></textarea>
-                        </div>
+                                label="Descrição do produto"
+                                multiline
+                                rows={2}
+                                />
+                            </FormControl>
                         <div className={styles.dinheiros}>
-                            <div className={styles.Gap}>
-                                <label htmlFor='IdPrecoVenda' className={styles.labelPadrao}>Preço de Venda</label>
-                                <div className={`${styles.alingPadrao}`}>
-                                    <div className={styles.simbolDinheiro}>
-                                        <p>R$</p>
-                                    </div>
-                                    <input 
-                                        className={styles.moneyInput} 
-                                        type='number' 
-                                        name='Preco' 
-                                        id='IdPrecoVenda'
-                                        required
-                                        value={formData.Preco}
-                                        onChange={handleChange}
-                                    />                                                                 
-                                </div>
-                            </div>
-                            <div className={styles.Gap}>
-                                <label htmlFor='IdPrecoMercado' className={styles.labelPadrao}>Preço de Mercado</label>
-                                <div className={`${styles.alingPadrao}`}>
-                                    <div className={styles.simbolDinheiro}>
-                                        <p>R$</p>
-                                    </div>
-                                    <div>
-                                        <input 
-                                            className={styles.moneyInput} 
-                                            type='number' 
-                                            name='Preco_Antes' 
-                                            id='IdPrecoMercado'
-                                            required
-                                            value={formData.Preco_Antes}
-                                            onChange={handleChange}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={styles.Gap}>
+                            <FormControl fullWidth sx={{ m: 1, width:'166px' }}>
+                                <InputLabel htmlFor="IdPrecoVenda">Preço de Venda</InputLabel>
+                                <OutlinedInput
+                                    id='IdPrecoVenda'
+                                    name='Preco' 
+                                    required
+                                    value={formData.Preco}
+                                    onChange={handleChange}
+                                    startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                                    label="Amount"
+                                />
+                                </FormControl> 
+                                <FormControl fullWidth sx={{ m: 1, width:'166px' }}>
+                                <InputLabel htmlFor="IdPrecoMercado">Preço de Mercado</InputLabel>
+                                <OutlinedInput
+                                    id='IdPrecoMercado'
+                                    name='Preco_Antes' 
+                                    required
+                                    value={formData.Preco_Antes}
+                                    onChange={handleChange}
+                                    startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                                    label="Amount"
+                                />
+                                </FormControl>                                                         
+                                <FormControl fullWidth sx={{ m: 1, width:'167px' }}>
+                                    <Select
+                                    labelId="demo-simple-select-label"
+                                    name="Tipo_produto" 
+                                    id="SelectType" 
+                                    value={formData.Tipo_produto}
+                                    onChange={handleSelectChange}
+                                    label="selecione"
+                                    >
+                                    <MenuItem value={10}>Ten</MenuItem>
+                                    <MenuItem value={20}>Twenty</MenuItem>
+                                    <MenuItem value={30}>Thirty</MenuItem>
+                                    </Select>
+                              </FormControl>
+                            {/* <div className={styles.Gap}>
                                 <label htmlFor='SelectType' className={styles.labelPadraoOut}>Tipo de Produto</label>
                                 <select 
                                     className={styles.optionsTipo} 
@@ -225,7 +216,7 @@ export default function CadastroProd() {
                                     <option value="Whey">Whey</option>
                                     <option value="Promoção">Promoção</option>
                                 </select>
-                            </div>    
+                            </div>     */}
                         </div>
                         <div className={styles.content}>
                             <div className={styles.a}>
