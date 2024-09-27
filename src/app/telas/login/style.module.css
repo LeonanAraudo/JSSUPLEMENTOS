@@ -94,7 +94,6 @@
     flex-direction: column;
     height: 100vh;
     font-size: 24px;
-    font-family: 'Montserrat', sans-serif;
   }
 .notCount{
     display: flex;

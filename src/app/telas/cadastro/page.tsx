@@ -3,7 +3,7 @@ import * as React from 'react';
 import styles from './style.module.css';
 import Image from 'next/image';
 import { montserrat } from '../../fonts';
-import { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import Box from '@mui/material/Box';
@@ -19,6 +19,9 @@ import { ThemeProvider } from '@emotion/react';
 import { IMaskInput } from 'react-imask';
 import Alert from '@mui/material/Alert';
 import Link from 'next/link';
+import { bouncy } from 'ldrs'
+
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -72,6 +75,7 @@ interface Mensage{
   action: JSX.Element
 }
 export default function Cadastrar() {
+  const [loading, setLoading] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [showPassworde, setShowPassworde] = useState(false);
   const [loadingButon, setLoadingButon] = useState(false); 
@@ -122,6 +126,26 @@ export default function Cadastrar() {
       }
     }
   };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false); 
+    }, 500);
+
+    return () => clearTimeout(timer); 
+  }, []);
+
+  if (loading) {
+    return (
+      <div className={styles.loading}>
+        <l-bouncy
+          size="45"
+          speed="1.75" 
+          color="black" 
+        ></l-bouncy>
+        
+      </div>
+    );
+  }
 
   return (
     <div>

@@ -8,6 +8,7 @@ import Popular from '../../../componentes/popularProdutos';
 import Drawer from '../../../componentes/Drawers/DrawerUser/drawer'
 import Hover from '../../../componentes/imgHover/hoverComponent'
 import Image from 'next/image';
+
 export default function Main() {
   return (
     <main className={styles.container}> 

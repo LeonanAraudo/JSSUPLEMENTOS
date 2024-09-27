@@ -1,8 +1,5 @@
 import Image from "next/image";
 import styles from '../../../styleComponents/header.module.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping,faAnglesDown} from '@fortawesome/free-solid-svg-icons'; 
-import { faUser} from '@fortawesome/free-regular-svg-icons'; 
 import {openSans, openeSans} from '../../../app/fonts';
 import Drawer from "@/componentes/Drawers/DrawerAdm/drawer";
 import Link from "next/link";

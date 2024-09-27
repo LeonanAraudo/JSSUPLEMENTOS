@@ -120,6 +120,7 @@ export default function Login() {
               color='primary'
               variant="standard" 
               size='small'
+              required
               onChange={(e) => setUsername(e.target.value)}
               value={Nome}
             />
@@ -128,6 +129,7 @@ export default function Login() {
               id='senhaUser'
               label="Senha"
               color='primary'
+              required
               type={showPassword ? 'text' : 'password'}
               variant="standard"
               size='small'
@@ -176,7 +178,7 @@ export default function Login() {
             className={styles.botao}
             sx={{ textTransform: 'none', fontSize:'17px' }}
             >Entrar
-            </Button>
+          </Button>
           )        
           }
           
