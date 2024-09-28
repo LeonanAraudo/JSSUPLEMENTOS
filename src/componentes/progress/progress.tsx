@@ -1,9 +1,13 @@
-"use client";
+import Box from '@mui/material/Box';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage } from '@fortawesome/free-regular-svg-icons'; 
-import Header from "@/componentes/Header/headerAdm/headerAdm";
-import styles from "./cadProd.module.css";
-import { montserrat, openSans } from '../../fonts';
+import styles from "../../app/telas/CadastroProduto/cadProd.module.css";
+import { montserrat, openSans } from '../../app/fonts';
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
@@ -13,22 +17,65 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 import { InputAdornment, InputLabel, MenuItem, OutlinedInput } from '@mui/material';
-import HorizontalLinearStepper from '@/componentes/progress/progress';
-
 
 interface FormData {
-    Nome: string;
-    Preco: string;
-    Descricao: string;
-    Marca: string;
-    Sabor: string;
-    Peso_Produto: string;
-    Quantidade: number;
-    Tipo_produto: string;
-    Preco_Antes: string;
+  Nome: string;
+  Preco: string;
+  Descricao: string;
+  Marca: string;
+  Sabor: string;
+  Peso_Produto: string;
+  Quantidade: number;
+  Tipo_produto: string;
+  Preco_Antes: string;
 }
 
-export default function CadastroProd() {
+const steps = ['Primeiro passo', 'Segundo passo', 'Terceiro passo'];
+
+export default function Progress() {
+  const [activeStep, setActiveStep] = React.useState(0);
+  const [skipped, setSkipped] = React.useState(new Set<number>());
+
+  const isStepOptional = (step: number) => {
+    return step === 1;
+  };
+
+  const isStepSkipped = (step: number) => {
+    return skipped.has(step);
+  };
+
+  const handleNext = () => {
+    let newSkipped = skipped;
+    if (isStepSkipped(activeStep)) {
+      newSkipped = new Set(newSkipped.values());
+      newSkipped.delete(activeStep);
+    }
+
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setSkipped(newSkipped);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleSkip = () => {
+    if (!isStepOptional(activeStep)) {
+      throw new Error("You can't skip a step that isn't optional.");
+    }
+
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setSkipped((prevSkipped) => {
+      const newSkipped = new Set(prevSkipped.values());
+      newSkipped.add(activeStep);
+      return newSkipped;
+    });
+  };
+
+  const handleReset = () => {
+    setActiveStep(0);
+  };
+
     const [formData, setFormData] = useState<FormData>({
         Nome: "",
         Preco: "",
@@ -101,14 +148,11 @@ export default function CadastroProd() {
         const fileInput = document.getElementById('fileInput') as HTMLInputElement;
         fileInput.click(); 
     };
-
-    return (
-        <div className={`${montserrat.className} ${styles.container}`}>
-            <header>
-                <Header />
-            </header>
-            <HorizontalLinearStepper/>
-            {/* <form onSubmit={handleSubmit}>
+  const getStepContent = (step: number) => {
+    switch (step) {
+      case 0:
+        return <div>
+           <form onSubmit={handleSubmit} className={`${montserrat.className}`}>
                 <div className={styles.forme}>
                     <div className={styles.primaMetade}>
                         <input
@@ -200,7 +244,21 @@ export default function CadastroProd() {
                                     </Select>
                               </FormControl>
                         </div>
-                        <div className={styles.content}>
+                    </div>
+                </div>
+
+                {message && (
+                    <div className={styles.message} style={{ color: message.type === 'error' ? 'red' : 'green' }}>
+                        {message.text}
+                    </div>
+                )}
+               
+            </form> 
+        </div>
+      case 1:
+        return <div>
+          <form onSubmit={handleSubmit}>
+          <div className={styles.content}>
                             <div className={styles.a}>
                                 <label htmlFor="IdMarca" className={styles.labelPadrao}>Marca</label>
                                 <input 
@@ -255,19 +313,69 @@ export default function CadastroProd() {
                                     onChange={handleChange}
                                 />
                             </div>
-                        </div>
-                    </div>
                 </div>
-
-                {message && (
-                    <div className={styles.message} style={{ color: message.type === 'error' ? 'red' : 'green' }}>
-                        {message.text}
-                    </div>
-                )}
-                <div className={styles.divButton}>
-                    <button className={styles.submitButton}>Cadastrar Produto</button>
-                </div>
-            </form> */}
+                </form>
         </div>
-    );
+        
+      case 2:
+        return 'Esta é a mensagem do terceiro passo';
+      default:
+        return 'Passo desconhecido';
+    }
+  };
+
+  return (
+    <Box sx={{ width: '100%',marginTop:'20px'}}>
+      <Stepper activeStep={activeStep} sx={{ width: '60%',marginLeft:'20%'}}>
+        {steps.map((label, index) => {
+          const stepProps: { completed?: boolean } = {};
+          const labelProps: {
+            optional?: React.ReactNode;
+          } = {};
+          if (isStepSkipped(index)) {
+            stepProps.completed = false;
+          }
+          return (
+            <Step key={label} {...stepProps}>
+              <StepLabel {...labelProps}>{label}</StepLabel>
+            </Step>
+          );
+        })}
+      </Stepper>
+      {activeStep === steps.length ? (
+        <React.Fragment>
+          <Typography sx={{ mt: 2, mb: 1 }}>
+            Todos os passos foram completados - você terminou!
+          </Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+            <Box sx={{ flex: '1 1 auto' }} />
+            <Button onClick={handleReset}>Resetar</Button>
+          </Box>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <Typography sx={{ mt: 2, mb: 1 }}>{getStepContent(activeStep)}</Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+            <Button
+              color="inherit"
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              sx={{ mr: 1 }}
+            >
+              Voltar
+            </Button>
+            <Box sx={{ flex: '1 1 auto' }} />
+            {isStepOptional(activeStep) && (
+              <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
+                Pular
+              </Button>
+            )}
+            <Button onClick={handleNext}>
+              {activeStep === steps.length - 1 ? 'Finalizar' : 'Próximo'}
+            </Button>
+          </Box>
+        </React.Fragment>
+      )}
+    </Box>
+  );
 }
