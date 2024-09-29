@@ -310,7 +310,7 @@ export default function Progress() {
         </div>
         
       case 2:
-        return <div></div>;
+        return
       default:
         return 'Passo desconhecido';
     }
