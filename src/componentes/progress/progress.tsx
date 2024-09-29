@@ -16,7 +16,7 @@ import Image from 'next/image';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
-import { InputAdornment, InputLabel, MenuItem, OutlinedInput } from '@mui/material';
+import { InputAdornment, InputLabel, MenuItem, OutlinedInput, SvgIcon } from '@mui/material';
 
 interface FormData {
   Nome: string;
@@ -257,63 +257,55 @@ export default function Progress() {
         </div>
       case 1:
         return <div>
-          <form onSubmit={handleSubmit}>
-          <div className={styles.content}>
-                            <div className={styles.a}>
-                                <label htmlFor="IdMarca" className={styles.labelPadrao}>Marca</label>
-                                <input 
-                                    className={styles.inputMarSab} 
-                                    type="text" 
-                                    name="Marca" 
-                                    id="IdMarca" 
-                                    placeholder='Insira a Marca do produto'
-                                    required
-                                    value={formData.Marca}
-                                    onChange={handleChange}
-                                />
-                            </div>
-                            <div className={styles.a}>
-                                <label htmlFor='IdSabor' className={styles.labelPadrao}>Sabor</label>
-                                <input 
-                                    className={styles.inputMarSab} 
-                                    type="text" 
-                                    name="Sabor" 
-                                    id="IdSabor" 
-                                    placeholder='Insira o sabor do produto'
-                                    required
-                                    value={formData.Sabor}
-                                    onChange={handleChange}
-                                />
-                            </div>
-                        </div>
-                        <div className={styles.content}>
-                            <div className={styles.a}>
-                                <label htmlFor='IdPesoProduto' className={styles.labelPadrao}>Peso do Produto</label>
-                                <input 
-                                    className={styles.inputMarSab} 
-                                    type="text" 
-                                    name="Peso_Produto" 
-                                    id="IdPesoProduto" 
-                                    placeholder='Insira o peso do produto' 
-                                    required
-                                    value={formData.Peso_Produto}
-                                    onChange={handleChange}
-                                />
-                            </div>
-                            <div className={styles.a}>
-                                <label htmlFor='IdQuantidade' className={styles.labelPadrao}>Quantidade</label>
-                                <input 
-                                    className={styles.inputMarSab} 
-                                    type="number" 
-                                    name="Quantidade" 
-                                    id="IdQuantidade" 
-                                    placeholder='Insira a quantidade do produto'
-                                    required
-                                    value={formData.Quantidade}
-                                    onChange={handleChange}
-                                />
-                            </div>
-                </div>
+          <form onSubmit={handleSubmit} className={styles.secondStep}>
+                      <div>
+                          <FormControl sx={{ m: 1, width: '50ch',marginTop:'30px' }} variant="standard">
+                             <TextField 
+                              name="Marca" 
+                              id="IdMarca"
+                              label="Marca"
+                              required
+                              value={formData.Marca}
+                              onChange={handleChange}
+                              variant="outlined"
+                               />
+                          </FormControl>
+                          <FormControl sx={{ m: 1, width: '50ch',marginTop:'30px' }} variant="standard">
+                             <TextField 
+                              name="Sabor" 
+                              id="IdSabor" 
+                              label="Sabor"
+                              required
+                              value={formData.Sabor}
+                              onChange={handleChange}
+                              variant="outlined"
+                               />
+                          </FormControl>
+                          </div>
+                          <div>
+                          <FormControl sx={{ m: 1, width: '50ch',marginTop:'30px' }} variant="standard">
+                             <TextField 
+                              name="Peso_Produto" 
+                              id="IdPesoProduto" 
+                              label="Peso do Produto"
+                              required
+                              value={formData.Peso_Produto}
+                              onChange={handleChange}
+                              variant="outlined"
+                               />
+                          </FormControl>
+                          <FormControl sx={{ m: 1, width: '50ch',marginTop:'30px' }} variant="standard">
+                             <TextField 
+                              name="Quantidade" 
+                              id="IdQuantidade" 
+                              label="Quantidade"
+                              required
+                              value={formData.Quantidade}
+                              onChange={handleChange}
+                              variant="outlined"
+                               />
+                          </FormControl>
+                    </div>                        
                 </form>
         </div>
         
@@ -337,7 +329,7 @@ export default function Progress() {
           }
           return (
             <Step key={label} {...stepProps}>
-              <StepLabel {...labelProps}>{label}</StepLabel>
+              <StepLabel {...labelProps} sx={{color:'black'}}>{label}</StepLabel>
             </Step>
           );
         })}
