@@ -306,11 +306,11 @@ export default function Progress() {
                                />
                           </FormControl>
                     </div>                        
-                </form>
+          </form>
         </div>
         
       case 2:
-        return 'Esta é a mensagem do terceiro passo';
+        return <div></div>;
       default:
         return 'Passo desconhecido';
     }
