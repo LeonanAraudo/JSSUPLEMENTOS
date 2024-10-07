@@ -89,7 +89,7 @@ const Page: FC<PageProps> = ({ params }) => {
         <div>
           <div className={styles.infosGerais}>
             <div className={`${openSans.className} ${styles.title}`}>
-              <h2>{produto.Nome}</h2>
+              <h2 className={styles.titleProduct}>{produto.Nome}</h2>
               <p className={styles.desc}>{produto.Descricao}</p>
             </div>
             <div className={styles.preco}>
