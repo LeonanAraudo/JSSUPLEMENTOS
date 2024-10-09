@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/material';
 
-const steps = ['Categoria de produto', 'Finalizar Cadastro do Produto'];
+const steps = ['Categoria de produto', 'Informações do Produto','Cadastrar produto'];
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
