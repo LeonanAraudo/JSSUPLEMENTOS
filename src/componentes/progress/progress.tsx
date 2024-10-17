@@ -7,8 +7,11 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/material';
+import Form1 from '../forms/formProduct1/form1';
+import Form2 from '../forms/formProduct2/form2';
+import Form3 from '../forms/formProduct3/form3';
 
-const steps = ['Categoria de produto', 'Informações do Produto','Cadastrar produto'];
+const steps = ['Categoria de produto', 'Informações do Produto','Dados Adicionais'];
 
 export default function HorizontalLinearStepper() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -57,20 +60,20 @@ export default function HorizontalLinearStepper() {
   const getStepContent = (step: number) => {
     switch (step) {
       case 0:
-        return <div>
-          <p>olá</p>
-          </div>;
+        return <Form1/>;
       case 1:
-        return <div>
-        </div>;
+        return <Form2/>;
+      case 2:
+        return <Form3/>;
       default:
         return 'Unknown step';
     }
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={activeStep}>
+    <Box sx={{ width: '100%',marginTop:'20px'}}>
+      <Box sx={{ width:'100%',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center' }}>
+      <Stepper sx={{ width: '80%'}}  activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps: { completed?: boolean } = {};
           const labelProps: { optional?: React.ReactNode } = {};
@@ -84,6 +87,7 @@ export default function HorizontalLinearStepper() {
           );
         })}
       </Stepper>
+      </Box>
       {activeStep === steps.length ? (
         <React.Fragment>
           <Typography sx={{ mt: 2, mb: 1 }}>
@@ -96,9 +100,10 @@ export default function HorizontalLinearStepper() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>
+          <Box sx={{ mt: 2, mb: 1 }}>
             {getStepContent(activeStep)}
-          </Typography>
+          </Box>
+          
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Button
               color="inherit"

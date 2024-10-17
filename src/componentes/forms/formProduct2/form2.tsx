@@ -55,10 +55,9 @@ export default function Form2(){
         }
     };
     return(
-        <div>
           <form onSubmit={handleSubmit} className={styles.secondStep}>
-                      <div>
-                          <FormControl sx={{ m: 1, width: '50ch',marginTop:'30px' }} variant="standard">
+                      <div className={styles.verticalInputs}>
+                          <FormControl sx={{ m: 1, width: '50ch'}} variant="standard">
                              <TextField 
                               name="Marca" 
                               id="IdMarca"
@@ -69,7 +68,7 @@ export default function Form2(){
                               variant="outlined"
                                />
                           </FormControl>
-                          <FormControl sx={{ m: 1, width: '50ch',marginTop:'30px' }} variant="standard">
+                          <FormControl sx={{ m: 1, width: '50ch' }} variant="standard">
                              <TextField 
                               name="Sabor" 
                               id="IdSabor" 
@@ -80,9 +79,9 @@ export default function Form2(){
                               variant="outlined"
                                />
                           </FormControl>
-                          </div>
-                          <div>
-                          <FormControl sx={{ m: 1, width: '50ch',marginTop:'30px' }} variant="standard">
+                      </div>
+                      <div className={styles.verticalInputs}>
+                          <FormControl sx={{ m: 1, width: '50ch'}} variant="standard">
                              <TextField 
                               name="Peso_Produto" 
                               id="IdPesoProduto" 
@@ -93,7 +92,7 @@ export default function Form2(){
                               variant="outlined"
                                />
                           </FormControl>
-                          <FormControl sx={{ m: 1, width: '50ch',marginTop:'30px' }} variant="standard">
+                          <FormControl sx={{ m: 1, width: '50ch'}} variant="standard">
                              <TextField 
                               name="Quantidade" 
                               id="IdQuantidade" 
@@ -106,6 +105,5 @@ export default function Form2(){
                           </FormControl>
                     </div>                        
           </form>
-        </div>
     )
 }

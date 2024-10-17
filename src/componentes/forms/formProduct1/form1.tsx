@@ -88,7 +88,6 @@ export default function Form1(){
           fileInput.click(); 
       };
     return(
-        <div>
            <form onSubmit={handleSubmit} className={`${montserrat.className}`}>
                 <div className={styles.forme}>
                     <div className={styles.primaMetade}>
@@ -191,6 +190,5 @@ export default function Form1(){
                 )}
                
             </form> 
-        </div>
     )
 }
