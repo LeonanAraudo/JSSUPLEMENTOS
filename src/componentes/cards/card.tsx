@@ -1,5 +1,5 @@
-import styles from '../styleComponents/card.module.css';
-import {montserrat} from '../app/fonts';
+import styles from '../../styleComponents/card.module.css';
+import {montserrat} from '../../app/fonts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesDown } from '@fortawesome/free-solid-svg-icons'; 
 import Image from 'next/image';

@@ -4,3 +4,9 @@
 .retira{
     text-decoration: none ;
 }
+.hovered:hover{
+    transform: scale(1.07);
+}
+.hovered{
+    transition: all 0.3s ease;
+}

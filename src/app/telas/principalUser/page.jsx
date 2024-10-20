@@ -4,7 +4,7 @@ import styles from './style1.module.css'
 import {openSans,openeSans} from '../../fonts';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import Popular from '../../../componentes/popularProdutos';
+import Popular from '../../../componentes/produtsSlide/popularProdutos';
 import Drawer from '../../../componentes/Drawers/DrawerUser/drawer'
 import Hover from '../../../componentes/imgHover/hoverComponent'
 import Image from 'next/image';

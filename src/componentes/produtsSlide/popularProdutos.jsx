@@ -1,7 +1,7 @@
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import Card from '@/componentes/card';
-import styles from '../styleComponents/popularProduto.module.css'
+import Card from '../cards/card';
+import styles from '../../styleComponents/popularProduto.module.css'
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
@@ -30,12 +30,12 @@ export default function Popular(){
                   rewind:true,
                   pagination:false,
                   fixedWidth:245,
-                  gap:30,
-                  fixedHeight:340
+                  gap:20,
+                  fixedHeight:380
                 }}
                 >
                   {posts.map((post) => 
-                    <SplideSlide key={post.Produto_id}>
+                    <SplideSlide key={post.Produto_id} className={styles.hovered}>
                       <Link className={styles.retira} href={`/telas/todos/${post.Produto_id}`}>          
                           <Card  produto={{
                               Nome: post.Nome,
