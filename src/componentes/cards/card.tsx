@@ -42,7 +42,6 @@ export default function Card({ produto }:CardProps){
                             <div>
                                 <p className={styles.precoAgora}>Por: R$ {produto.Preco}</p>
                             </div>
-                            <div className={styles.saiba}><p className={styles.mais}>Saiba Mais</p></div>
                     </div>
                 </div>
             </main>
