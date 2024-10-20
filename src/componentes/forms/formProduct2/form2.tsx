@@ -5,77 +5,46 @@ import axios from "axios";
 import styles from '../../../app/telas/CadastroProduto/cadProd.module.css'
 import { montserrat } from "@/app/fonts";
 import { FormControl, InputAdornment, InputLabel, MenuItem, OutlinedInput, TextField } from "@mui/material";
+import { useForm } from "react-hook-form";
+import { useCreateForm2 } from "../../../../hook/formsProduto/form2/form2";
 
-interface FormData {
-    Peso_Produto: string;
-    Quantidade: number;
-    Marca: string;
-    Sabor: string;
-  }
-
+interface FormDataProps{
+    Marca: string,
+    Sabor: string,
+    Peso_Produto: string,
+    Quantidade: string
+}
 export default function Form2(){
-    const [formData, setFormData] = useState<FormData>({
-      Peso_Produto:"",
-      Quantidade:0,
-      Marca:"",
-      Sabor:""
-    });
 
-    const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-    const router = useRouter();
-    
-    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement  >) => {
-        const { name, value } = e.target; //desestrutura name e value
-        setFormData(prev => ({ ...prev, [name]: value })); // O campo name e atualizado com o novo value
-    };
+    const { register, handleSubmit } =useForm<FormDataProps>()
+  
+    async function handleCreateForm2(data: FormDataProps) {
+      await useCreateForm2({
+        Marca: data.Marca,
+        Sabor: data.Sabor,
+        Peso_Produto: data.Peso_Produto,
+        Quantidade: data.Quantidade
+      })
 
-    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-    
-        const formDataToSend = new FormData();
-    
-        // Adiciona os dados do formulário ao FormData
-        (Object.keys(formData) as (keyof FormData)[]).forEach(key => {
-            const value = formData[key as keyof FormData];
-            formDataToSend.append(key, value.toString()); // Converte o valor para string
-        });
-    
-        try {
-            const response = await axios.post('/api/cadProduto/cadProduto', formDataToSend, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-            setMessage({ type: 'success', text: 'Produto criado com sucesso!' });
-            router.push('/telas/principalAdm');
-        } catch (error) {
-            if (error instanceof Error) {
-                setMessage({ type: 'error', text: 'Erro ao criar produto: ' + error.message });
-            }
-        }
-    };
+    }
     return(
-          <form onSubmit={handleSubmit} className={styles.secondStep}>
+          <form onSubmit={handleSubmit(handleCreateForm2)} className={styles.secondStep}>
                       <div className={styles.verticalInputs}>
                           <FormControl sx={{ m: 1, width: '50ch'}} variant="standard">
                              <TextField 
-                              name="Marca" 
                               id="IdMarca"
                               label="Marca"
                               required
-                              value={formData.Marca}
-                              onChange={handleChange}
+                              {...register('Marca')}
                               variant="outlined"
                                />
                           </FormControl>
                           <FormControl sx={{ m: 1, width: '50ch' }} variant="standard">
                              <TextField 
-                              name="Sabor" 
                               id="IdSabor" 
                               label="Sabor"
-                              required
-                              value={formData.Sabor}
-                              onChange={handleChange}
+                              required                       
+                              {...register('Sabor')}
                               variant="outlined"
                                />
                           </FormControl>
@@ -83,27 +52,26 @@ export default function Form2(){
                       <div className={styles.verticalInputs}>
                           <FormControl sx={{ m: 1, width: '50ch'}} variant="standard">
                              <TextField 
-                              name="Peso_Produto" 
                               id="IdPesoProduto" 
                               label="Peso do Produto"
                               required
-                              value={formData.Peso_Produto}
-                              onChange={handleChange}
+                             {...register('Peso_Produto')}
                               variant="outlined"
                                />
                           </FormControl>
                           <FormControl sx={{ m: 1, width: '50ch'}} variant="standard">
                              <TextField 
-                              name="Quantidade" 
                               id="IdQuantidade" 
                               label="Quantidade"
                               required
-                              value={formData.Quantidade}
-                              onChange={handleChange}
+                              {...register('Quantidade')}
                               variant="outlined"
                                />
                           </FormControl>
-                    </div>                        
+                    </div>             
+                    <button type="submit">
+                    alerta
+                    </button>           
           </form>
     )
 }

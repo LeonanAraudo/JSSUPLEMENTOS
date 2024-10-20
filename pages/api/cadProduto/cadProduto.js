@@ -32,10 +32,6 @@ export default function handler(req, res) {
                 Nome,
                 Preco,
                 Descricao,
-                Marca,
-                Sabor,
-                Peso_Produto,
-                Quantidade,
                 Tipo_produto,
                 Preco_Antes 
             } = req.body;
@@ -57,10 +53,6 @@ export default function handler(req, res) {
                         Nome,
                         Preco,
                         Descricao,
-                        Marca,
-                        Sabor,
-                        Peso_Produto,
-                        Quantidade,
                         Foto: imageUrl,
                         Tipo_produto,
                         Preco_Antes

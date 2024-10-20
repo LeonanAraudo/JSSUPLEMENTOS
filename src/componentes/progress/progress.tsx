@@ -60,11 +60,11 @@ export default function HorizontalLinearStepper() {
   const getStepContent = (step: number) => {
     switch (step) {
       case 0:
-        return <Form3/>;
-      case 1:
-        return <Form2/>;
-      case 2:
         return <Form1/>;
+      case 1:
+        return <Form3/>;
+      case 2:
+        return <Form2/>;
       default:
         return 'Unknown step';
     }
