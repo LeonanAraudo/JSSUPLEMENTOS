@@ -7,97 +7,54 @@ import { montserrat } from "@/app/fonts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faImage } from "@fortawesome/free-regular-svg-icons";
 import { FormControl, InputAdornment, InputLabel, MenuItem, OutlinedInput, TextField } from "@mui/material";
+import {useForm} from 'react-hook-form'
+import useForm1 from "../../../../hook/formsProduto/form1/form1";
 
-interface FormData {
+ type FormDataProps = {
     Nome: string;
     Preco: string;
     Descricao: string;
     Marca: string;
     Preco_Antes: string;
     Tipo_produto:string;
+    Foto: FileList | null;
   }
 
 export default function Form1(){
-      const [formData, setFormData] = useState<FormData>({
-          Nome: "",
-          Preco: "",
-          Descricao: "",
-          Marca: "",
-          Preco_Antes:"",
-          Tipo_produto:""
-      });
+  const {handleSubmit,register,setValue,onSubmit} = useForm1()
+    const [imageSrc, setImageSrc] = useState<string | null>(null);
+    const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      const file = event.target.files?.[0];
+      if (file) {
+        const imageUrl = URL.createObjectURL(file);
+        setImageSrc(imageUrl);
+        setValue('Foto', event.target.files);
+      }
+    }
   
-      const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-      const router = useRouter();
-      const [imageSrc, setImageSrc] = useState<string | null>(null);
-  
-      const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement  >) => {
-          const { name, value } = e.target; //desestrutura name e value
-          setFormData(prev => ({ ...prev, [name]: value })); // O campo name e atualizado com o novo value
-      };
-  
-      const handleSelectChange = (event: SelectChangeEvent<string>) => {
-          const { name, value } = event.target;
-          setFormData(prev => ({ ...prev, [name]: value }));
-      };
-  
-      const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-          e.preventDefault();
-      
-          const formDataToSend = new FormData();
-      
-          // Adiciona os dados do formulário ao FormData
-          (Object.keys(formData) as (keyof FormData)[]).forEach(key => {
-              const value = formData[key as keyof FormData];
-              formDataToSend.append(key, value.toString()); // Converte o valor para string
-          });
-      
-          // Adiciona o arquivo de imagem ao FormData
-          const fileInput = document.getElementById('fileInput') as HTMLInputElement;
-          if (fileInput.files) {
-              const file = fileInput.files[0];
-              formDataToSend.append('Foto', file); 
-          }
-      
-          try {
-              const response = await axios.post('/api/cadProduto/cadProduto', formDataToSend, {
-                  headers: {
-                      'Content-Type': 'multipart/form-data',
-                  },
-              });
-              setMessage({ type: 'success', text: 'Produto criado com sucesso!' });
-              router.push('/telas/principalAdm');
-          } catch (error) {
-              if (error instanceof Error) {
-                  setMessage({ type: 'error', text: 'Erro ao criar produto: ' + error.message });
-              }
-          }
-      };
-      
-      const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-          const file = event.target.files?.[0];
-          if (file) {
-              const imageUrl = URL.createObjectURL(file);
-              setImageSrc(imageUrl);
-              setFormData(prev => ({ ...prev, Foto: file.name })); // Aqui apenas armazene o nome da imagem, o arquivo é enviado diretamente no FormData
-          }
-      };
-  
-      const handleDivClick = () => {
-          const fileInput = document.getElementById('fileInput') as HTMLInputElement;
-          fileInput.click(); 
-      };
+    const handleDivClick = () => {
+      const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+      fileInput.click();
+    };
+
+    
     return(
-           <form onSubmit={handleSubmit} className={`${montserrat.className}`}>
+           <form onSubmit={handleSubmit(onSubmit)} className={`${montserrat.className}`}>
                 <div className={styles.forme}>
-                    <div className={styles.primaMetade}>
+                    <div className={styles.primaMetade} >
                         <input
                             id="fileInput"
-                            name="Foto"
                             type="file"
                             required
                             className={styles.inputImag}
-                            onChange={handleFileChange}
+                            {...register('Foto',{
+                              onChange: (e) => {
+                                  handleFileChange(e); // Chama sua função de manipulação de arquivo
+                                  // Aqui, você também pode adicionar lógica adicional, se necessário
+                              }}
+                              ,)}
                         />
                         <div onClick={handleDivClick} style={{
                             backgroundImage: imageSrc ? `url(${imageSrc})` : 'none',
@@ -121,20 +78,17 @@ export default function Form1(){
                             <FormControl sx={{ m: 1, width: '50ch',marginTop:'30px' }} variant="standard">
                              <TextField 
                              id="NomeProd"
-                             name="Nome"
                              label="Nome do produto"
-                             value={formData.Nome}
-                             onChange={handleChange}
-                              variant="outlined" />
+                             variant="outlined" 
+                             {...register('Nome')}
+                             />
                             </FormControl>
                             <FormControl  sx={{ m: 1, width: '50ch'}} variant="standard">
                             <TextField
                                 id='Descricao'
-                                name='Descricao' 
                                 required
-                                value={formData.Descricao}
-                                onChange={handleChange}
                                 label="Descrição do produto"
+                                {...register('Descricao')}
                                 multiline
                                 rows={2}
                                 />
@@ -144,10 +98,8 @@ export default function Form1(){
                                 <InputLabel htmlFor="IdPrecoVenda">Preço de Venda</InputLabel>
                                 <OutlinedInput
                                     id='IdPrecoVenda'
-                                    name='Preco' 
-                                    required
-                                    value={formData.Preco}
-                                    onChange={handleChange}
+                                    required       
+                                    {...register('Preco')}
                                     startAdornment={<InputAdornment position="start">$</InputAdornment>}
                                     label="Preço de Venda"
                                 />
@@ -156,10 +108,8 @@ export default function Form1(){
                                 <InputLabel htmlFor="IdPrecoMercado">Preço de Mercado</InputLabel>
                                 <OutlinedInput
                                     id='IdPrecoMercado'
-                                    name='Preco_Antes' 
                                     required
-                                    value={formData.Preco_Antes}
-                                    onChange={handleChange}
+                                    {...register('Preco_Antes')}
                                     startAdornment={<InputAdornment position="start">$</InputAdornment>}
                                     label="Preço de Mercado"
                                 />
@@ -168,10 +118,8 @@ export default function Form1(){
                                     <InputLabel id="SelectType">Tipo de Produto</InputLabel>
                                     <Select
                                     labelId="SelectType"
-                                    name="Tipo_produto" 
                                     id="SelectType" 
-                                    value={formData.Tipo_produto}
-                                    onChange={handleSelectChange}
+                                    {...register('Tipo_produto')}
                                     label='Tipo de Produto'
                                     >
                                     <MenuItem value='Creatina'>Creatina</MenuItem>
@@ -188,6 +136,7 @@ export default function Form1(){
                         {message.text}
                     </div>
                 )}
+    
                
             </form> 
     )
