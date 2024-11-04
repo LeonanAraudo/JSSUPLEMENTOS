@@ -5,7 +5,6 @@ import {openSans,openeSans} from '../../fonts';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 import Popular from '../../../componentes/produtsSlide/popularProdutos';
-import Drawer from '../../../componentes/Drawers/DrawerUser/drawer'
 import Hover from '../../../componentes/imgHover/hoverComponent'
 import Image from 'next/image';
 export default function Main() {

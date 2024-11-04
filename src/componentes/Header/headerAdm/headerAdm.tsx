@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from '../../../styleComponents/header.module.css';
 import {openSans, openeSans} from '../../../app/fonts';
-import Drawer from "@/componentes/Drawers/DrawerAdm/drawer";
+import Drawer from "../../Drawers/DrawerAdm/drawer";
 import Link from "next/link";
 export default function Header () {
     return (

@@ -50,7 +50,7 @@ export default function AnchorTemporaryDrawer() {
               </ListItemIcon>
               <ListItemText>
                 <Link href='/telas/CadastroProduto'>
-                  Cadastrar Proudto
+                  Cadastrar Produto
                 </Link>
               </ListItemText>
             </ListItemButton>
