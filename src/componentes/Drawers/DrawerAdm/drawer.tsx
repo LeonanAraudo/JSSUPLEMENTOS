@@ -79,7 +79,7 @@ export default function AnchorTemporaryDrawer() {
                 <PersonSearchIcon fontSize='small' />
               </ListItemIcon>
               <ListItemText>
-                <Link href='/telas/CadastroProduto'>
+                <Link href='/telas/searchUser'>
                   Buscar Cliente
                 </Link>
               </ListItemText>

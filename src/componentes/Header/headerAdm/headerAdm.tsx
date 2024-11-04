@@ -8,7 +8,7 @@ export default function Header () {
         <>
         <header className={styles.heade}>
             <div className={styles.logo}>
-                <Link href={"/telas/principalUser"}>
+                <Link href={"/telas/principalAdm"}>
                 <Image
                     src='/suples.png'
                     width={300} 
