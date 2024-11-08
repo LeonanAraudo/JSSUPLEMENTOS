@@ -41,7 +41,24 @@ export default function Main() {
     </div>
     <div>
             <Hover image1="/ba.webp" image2="/bull.jpg" image3="/corre.jpg" image4="/valha.webp"  />
-    </div>        
+    </div>    
+    <div className={styles.story}>
+      <div className={styles.storyImage}>
+        <Image 
+        src='/corre.jpg'
+        width={200}
+        height={200}
+        ></Image>
+      </div>
+      <div className={styles.storyText}>
+            <div className={`${openSans.className}} ${styles.aling} `}>
+                <h1 style={{fontSize:"20px",marginBottom:"25px"}}>Story of Josy</h1>
+                <p className={openSans.className}>A aplicação prática dos conhecimentos adquiridos ao longo do curso proporcionará à equipe uma visão clara de como esses aprendizados se aplicam no mundo real. Além disso, a experiência obtida por meio do estudo e da preparação para a palestra servirá como um alicerce para o desenvolvimento pessoal e colaborativo dos membros. Para o público-alvo, composto por estudantes do ensino médio, esperamos que nossa atuação desperte o interesse pela tecnologia e incentive a busca por mais conhecimento na área de desenvolvimento de software.</p>
+            </div>
+      </div>
+    </div>   
+    <footer>
+    </footer>
     </main>
   );
 }

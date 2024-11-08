@@ -16,12 +16,14 @@ export default async function handler(req, res) {
       if (!isPasswordCorrect) {
         return res.status(401).json({ error: 'Senha incorreta' });
       }
-
-      return res.redirect('/telas/principalUser');
+      
+      return res.status(200).json({ Tipo_User: user.Tipo_User });
+      
     } catch (error) {
       console.error('Erro no login:', error);
       return res.status(500).json({ error: 'Erro interno do servidor' });
     }
+    
   } else {
     res.setHeader('Allow', ['POST']);
     return res.status(405).end(`Método ${req.method} não permitido`);

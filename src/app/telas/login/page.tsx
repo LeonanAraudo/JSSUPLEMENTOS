@@ -68,8 +68,11 @@ export default function Login() {
         Nome,
         Senha
       });
-      if (response.status === 200) {
-        router.push('/telas/principalUser');
+      const {Tipo_User} = response.data;
+      if (Tipo_User == 'Admnistrador') {
+        router.push('/telas/principalAdm');
+      }else{
+        router.push('/telas/principalUser')
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
