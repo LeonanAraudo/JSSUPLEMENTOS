@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/componentes/Header/headerUser/header.tsx", "src/app/telas/principalUser/page.jsx", "src/componentes/produtsSlide/popularProdutos.jsx", "src/app/telas/CadastroProduto/page.tsx", "src/app/telas/[id]/page.tsx", "src/componentes/Header/headerAdm/headerAdm.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/componentes/Header/headerUser/header.tsx", "src/app/telas/principalUser/page.jsx", "src/componentes/produtsSlide/popularProdutos.jsx", "src/app/telas/CadastroProduto/page.tsx", "src/app/telas/[id]/page.tsx", "src/componentes/Header/headerAdm/headerAdm.tsx", "src/componentes/ArrayUsers/arrayUsers.jsx"],
   "exclude": ["node_modules"]
 }
