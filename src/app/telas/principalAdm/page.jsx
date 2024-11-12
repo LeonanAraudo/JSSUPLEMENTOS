@@ -7,6 +7,7 @@ import '@splidejs/react-splide/css';
 import Popular from '../../../componentes/produtsSlide/popularProdutos';
 import Hover from '../../../componentes/imgHover/hoverComponent'
 import Image from 'next/image';
+import Footer from '../../../componentes/footer/footer'
 
 export default function Main() {
   return (
@@ -56,9 +57,8 @@ export default function Main() {
                 <p className={openSans.className}>A aplicação prática dos conhecimentos adquiridos ao longo do curso proporcionará à equipe uma visão clara de como esses aprendizados se aplicam no mundo real. Além disso, a experiência obtida por meio do estudo e da preparação para a palestra servirá como um alicerce para o desenvolvimento pessoal e colaborativo dos membros. Para o público-alvo, composto por estudantes do ensino médio, esperamos que nossa atuação desperte o interesse pela tecnologia e incentive a busca por mais conhecimento na área de desenvolvimento de software.</p>
             </div>
       </div>
-    </div>   
-    <footer>
-    </footer>
+    </div>
+    <Footer/>   
     </main>
   );
 }
