@@ -8,9 +8,7 @@ export default function SearchUser(){
         <header>
             <Header/>
         </header>
-        {/* <div className="flex justify-center align-center mt-3">
-            <SearchInput/>
-        </div> */}
+        
         <div className="mt-10">
             <ArrayList/>
         </div>

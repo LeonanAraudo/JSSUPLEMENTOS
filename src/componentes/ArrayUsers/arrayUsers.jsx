@@ -31,7 +31,7 @@ export default function ArrayList(){
 
     const filteredPost = posts.filter(post => post.Nome.toLowerCase().includes(searchs.toLowerCase()))
     return(
-        <>
+        <main>
         <div className='w-full flex items-center justify-center mb-10'>
          <Box
             component="form"
@@ -53,17 +53,17 @@ export default function ArrayList(){
         </div>
         
         {filteredPost.map((post) => (
-            <div key={post.User_id} className="w-full flex items-center justify-center flex-col">
+        <div key={post.User_id} className="w-full flex items-center justify-center flex-col">
             <div className="w-[44%] lex items-center justify-center flex-col ">
                 <div className="w-full bg-gray-500 h-[1px]"></div>
                 <div className='bg-white transition duration-300 cursor-pointer flex flex-row justify-between items-center w-full hover:bg-gray-200'>
-                    <p className={`m-3 font-bold ${openSans.className}`}>{post.Nome}</p>
+                    <p className={`m-3 font-bold w-5 ${openSans.className}`}>{post.Nome}</p>
                     <KeyboardArrowRightIcon sx={{fontSize: 30}}/>
                 </div>
             </div>
         </div>
         ))}
         
-        </>
+        </main>
     )
 }
